@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MTC — Mes Outils</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0d0f;--surf:#141416;--surf2:#1c1c20;--bdr:#2a2a30;--acc:#e8ff47;--acc2:#ff6b35;--warn:#ff9500;--txt:#f0f0f0;--mut:#6b6b78;--grn:#4ade80;--red:#f87171;--purp:#a78bfa;--blue:#38bdf8}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--txt);font-family:'DM Sans',sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased}
+body{display:flex;flex-direction:column;align-items:center;padding:30px 20px 60px;background:radial-gradient(circle at 30% 0%,rgba(167,139,250,.07),transparent 50%),radial-gradient(circle at 80% 100%,rgba(56,189,248,.04),transparent 50%),var(--bg)}
+.back{align-self:flex-start;font-size:12px;color:var(--mut);text-decoration:none;letter-spacing:1px;margin-bottom:30px;padding:6px 10px;border-radius:6px;border:1px solid transparent;transition:.2s}
+.back:hover{color:var(--acc);border-color:var(--bdr)}
+header{text-align:center;margin:20px 0 50px;animation:fadeIn .6s ease}
+.hello{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--mut);margin-bottom:8px}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,7vw,64px);letter-spacing:4px;line-height:1;color:var(--txt)}
+h1 .accent{color:var(--purp)}
+.subtitle{font-size:14px;color:var(--mut);margin-top:14px;max-width:520px;line-height:1.5}
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;max-width:920px;width:100%}
+.tool-card{position:relative;background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--accent-color);border-radius:12px;padding:24px;text-decoration:none;color:inherit;transition:.25s;display:flex;flex-direction:column;gap:12px;animation:fadeUp .5s ease backwards;overflow:hidden}
+.tool-card:nth-child(1){animation-delay:.1s}.tool-card:nth-child(2){animation-delay:.2s}.tool-card:nth-child(3){animation-delay:.3s}
+.tool-card.active{cursor:pointer}
+.tool-card.active:hover{border-color:var(--accent-color);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.tool-card.coming-soon{opacity:.5;cursor:not-allowed}
+.t-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.t-icon{font-size:30px;line-height:1}
+.t-tag{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut);padding:3px 9px;border:1px solid var(--bdr);border-radius:10px}
+.tool-card.active .t-tag{color:var(--accent-color);border-color:var(--accent-color)}
+.t-name{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--txt);line-height:1.1}
+.t-desc{font-size:13px;color:var(--mut);line-height:1.5;flex:1}
+.t-foot{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--mut)}
+.t-arrow{color:var(--mut);font-size:18px;transition:.2s}
+.tool-card.active .t-arrow{color:var(--accent-color)}
+.tool-card.active:hover .t-arrow{transform:translateX(4px)}
+footer{margin-top:60px;font-size:11px;color:var(--mut);letter-spacing:1px;text-align:center}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@media (max-width:600px){body{padding:24px 16px 40px}header{margin-bottom:36px}h1{font-size:38px;letter-spacing:2px}.tool-card{padding:20px}}
+</style></head><body>
+
+<a class="back" href="https://skeunou.github.io/">← MES UNIVERS</a>
+
+<header>
+  <div class="hello">Médecine Traditionnelle Chinoise</div>
+  <h1>MTC <span class="accent">& TUINA</span></h1>
+  <div class="subtitle">Mes outils d'apprentissage et de pratique de la MTC.</div>
+</header>
+
+<main class="tools">
+  <div class="tool-card coming-soon" style="--accent-color:var(--purp)">
+    <div class="t-head"><div class="t-icon">〰️</div><div class="t-tag">À venir</div></div>
+    <div class="t-name">LES MÉRIDIENS</div>
+    <div class="t-desc">Cartographie des méridiens, points clés et applications.</div>
+    <div class="t-foot"><span>Bientôt disponible</span><span class="t-arrow">·</span></div>
+  </div>
+  <div class="tool-card coming-soon" style="--accent-color:var(--blue)">
+    <div class="t-head"><div class="t-icon">📖</div><div class="t-tag">À venir</div></div>
+    <div class="t-name">MES COURS</div>
+    <div class="t-desc">Partie théorique — notes et synthèses de mes cours de MTC.</div>
+    <div class="t-foot"><span>Bientôt disponible</span><span class="t-arrow">·</span></div>
+  </div>
+  <div class="tool-card coming-soon" style="--accent-color:var(--acc2)">
+    <div class="t-head"><div class="t-icon">🤲</div><div class="t-tag">À venir</div></div>
+    <div class="t-name">LES PROTOCOLES TUINA</div>
+    <div class="t-desc">Protocoles Tuina par indication et techniques de massage.</div>
+    <div class="t-foot"><span>Bientôt disponible</span><span class="t-arrow">·</span></div>
+  </div>
+</main>
+
+<footer>Construit sur mesure · Données locales · Aucune pub</footer>
+
+</body></html>
