@@ -19,7 +19,7 @@ h1 .accent{color:var(--purp)}
 .subtitle{font-size:14px;color:var(--mut);margin-top:14px;max-width:520px;line-height:1.5}
 .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;max-width:920px;width:100%}
 .tool-card{position:relative;background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--accent-color);border-radius:12px;padding:24px;text-decoration:none;color:inherit;transition:.25s;display:flex;flex-direction:column;gap:12px;animation:fadeUp .5s ease backwards;overflow:hidden}
-.tool-card:nth-child(1){animation-delay:.1s}.tool-card:nth-child(2){animation-delay:.2s}.tool-card:nth-child(3){animation-delay:.3s}
+.tool-card:nth-child(1){animation-delay:.1s}.tool-card:nth-child(2){animation-delay:.2s}.tool-card:nth-child(3){animation-delay:.3s}.tool-card:nth-child(4){animation-delay:.4s}
 .tool-card.active{cursor:pointer}
 .tool-card.active:hover{border-color:var(--accent-color);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.3)}
 .tool-card.coming-soon{opacity:.5;cursor:not-allowed}
@@ -65,6 +65,12 @@ footer{margin-top:60px;font-size:11px;color:var(--mut);letter-spacing:1px;text-a
     <div class="t-name">LES PROTOCOLES TUINA</div>
     <div class="t-desc">Protocoles Tuina par indication et techniques de massage. Points, schémas de repérage et déroulés de séance.</div>
     <div class="t-foot"><span>7 protocoles</span><span class="t-arrow">→</span></div>
+  </a>
+  <a href="https://skeunou.github.io/mtc/routines/" class="tool-card active" style="--accent-color:var(--grn)">
+    <div class="t-head"><div class="t-icon">🧘</div><div class="t-tag">Routine</div></div>
+    <div class="t-name">FICHES ROUTINE</div>
+    <div class="t-desc">Réveil musculaire Qi Gong du matin (variantes A/B) et enchaînements quotidiens.</div>
+    <div class="t-foot"><span>2 fiches</span><span class="t-arrow">→</span></div>
   </a>
 </main>
 
