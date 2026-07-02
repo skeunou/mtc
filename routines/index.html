@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MTC — Fiches Routine</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0d0f;--surf:#141416;--surf2:#1c1c20;--bdr:#2a2a30;--acc:#e8ff47;--acc2:#ff6b35;--warn:#ff9500;--txt:#f0f0f0;--mut:#6b6b78;--grn:#4ade80;--red:#f87171;--purp:#a78bfa;--blue:#38bdf8;
+--insp:#2dd4bf;--exp:#fbbf24;--libre:#94a3b8}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--txt);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
+body{background:radial-gradient(circle at 30% 0%,rgba(167,139,250,.07),transparent 50%),radial-gradient(circle at 80% 100%,rgba(45,212,191,.04),transparent 50%),var(--bg);min-height:100vh}
+
+header{position:sticky;top:0;z-index:20;background:rgba(13,13,15,.92);backdrop-filter:blur(8px);border-bottom:2px solid var(--purp);padding:12px 16px;display:flex;align-items:center;gap:12px}
+.hbtn{background:none;border:1px solid var(--bdr);color:var(--mut);font-size:12px;letter-spacing:1px;padding:6px 10px;border-radius:8px;cursor:pointer;text-decoration:none;white-space:nowrap;transition:.2s}
+.hbtn:hover{color:var(--purp);border-color:var(--purp)}
+.htitle{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;line-height:1;flex:1}
+.htitle span{color:var(--purp)}
+
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 70px}
+
+/* intro */
+.intro{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:18px 18px 16px;margin-bottom:22px}
+.intro h2{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:1.5px;color:var(--txt);margin-bottom:8px}
+.intro p{font-size:13.5px;color:var(--mut);line-height:1.55}
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px;font-size:11px;letter-spacing:.5px}
+.chip{background:var(--surf2);border:1px solid var(--bdr);border-radius:20px;padding:5px 11px;color:var(--txt)}
+.chip.mut{color:var(--mut)}
+.flow .arw{color:var(--purp);font-weight:700}
+
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;padding-top:14px;border-top:1px solid var(--bdr)}
+.leg{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--mut)}
+.dot{width:10px;height:10px;border-radius:50%}
+
+/* list cards */
+.cards{display:grid;gap:14px}
+.card{background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--accent-color);border-radius:12px;padding:18px;cursor:pointer;transition:.22s;display:flex;flex-direction:column;gap:10px}
+.card:hover{transform:translateY(-2px);border-color:var(--accent-color);box-shadow:0 10px 26px rgba(0,0,0,.3)}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.varbadge{font-family:'Bebas Neue',sans-serif;font-size:34px;line-height:.8;color:var(--accent-color);letter-spacing:1px}
+.card-tag{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-color);border:1px solid var(--accent-color);border-radius:10px;padding:3px 9px}
+.card-name{font-family:'Bebas Neue',sans-serif;font-size:23px;letter-spacing:1.5px;line-height:1.05}
+.card-accent{font-size:13px;color:var(--mut);line-height:1.5}
+.card-foot{display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--mut);margin-top:2px}
+.card-foot .arw{color:var(--accent-color);font-size:17px}
+
+/* detail */
+#detail{display:none}
+.dtop{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.dback{background:none;border:1px solid var(--bdr);color:var(--mut);font-size:12px;letter-spacing:1px;padding:7px 12px;border-radius:8px;cursor:pointer;transition:.2s}
+.dback:hover{color:var(--purp);border-color:var(--purp)}
+.dhead{margin-bottom:16px}
+.dhead .dvar{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:var(--accent-color)}
+.dhead h2{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:1.5px;line-height:1;margin:2px 0 8px}
+.dhead .dacc{font-size:13.5px;color:var(--mut);line-height:1.5}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.meta .m{background:var(--surf2);border:1px solid var(--bdr);border-radius:8px;padding:6px 11px;font-size:11.5px;color:var(--txt)}
+.meta .m b{color:var(--accent-color);font-weight:600}
+.objectif{background:var(--surf);border:1px solid var(--bdr);border-radius:10px;padding:14px;font-size:13.5px;color:var(--txt);line-height:1.55;margin-bottom:14px}
+
+.sec-warn{background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.4);border-radius:10px;padding:12px 14px;margin-bottom:18px;display:flex;gap:10px;align-items:flex-start}
+.sec-warn .ic{font-size:16px;line-height:1.3}
+.sec-warn .txt{font-size:12.5px;color:#fca5a5;line-height:1.5}
+.sec-warn .txt b{color:var(--red)}
+
+.block-title{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1.5px;color:var(--mut);margin:22px 0 10px;display:flex;align-items:center;gap:8px}
+.block-title .n{color:var(--accent-color)}
+
+/* sequence */
+.seq{display:flex;flex-direction:column;gap:8px}
+.step{background:var(--surf);border:1px solid var(--bdr);border-radius:10px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start}
+.step .ord{font-family:'Bebas Neue',sans-serif;font-size:24px;line-height:1;color:var(--accent-color);min-width:26px;text-align:center;padding-top:1px}
+.step .body{flex:1;min-width:0}
+.step .nm{font-size:14.5px;font-weight:600;color:var(--txt);line-height:1.25}
+.step .cible{font-size:11.5px;color:var(--mut);margin-top:3px;line-height:1.45}
+.step .souffle{font-size:12px;margin-top:6px;line-height:1.45}
+.step .dur{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--txt);min-width:44px;text-align:right;letter-spacing:.5px}
+.step .dur small{font-size:11px;color:var(--mut)}
+.i-insp{color:var(--insp);font-weight:600}
+.i-exp{color:var(--exp);font-weight:600}
+.i-libre{color:var(--libre);font-weight:600}
+.seq-total{text-align:right;font-size:12px;color:var(--mut);margin-top:10px}
+.seq-total b{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--accent-color);letter-spacing:1px}
+
+.cloture{background:var(--surf2);border:1px dashed var(--bdr);border-radius:10px;padding:12px 14px;margin-top:12px;font-size:12.5px;color:var(--mut);line-height:1.5}
+.cloture b{color:var(--txt)}
+
+/* collapsibles */
+.acc{border:1px solid var(--bdr);border-radius:10px;margin-top:10px;overflow:hidden;background:var(--surf)}
+.acc-h{width:100%;text-align:left;background:none;border:none;color:var(--txt);font-family:'DM Sans',sans-serif;font-size:13.5px;font-weight:600;padding:14px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.acc-h .ch{color:var(--mut);transition:.25s;font-size:12px}
+.acc.open .acc-h .ch{transform:rotate(180deg);color:var(--accent-color)}
+.acc-c{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.acc-inner{padding:0 16px 16px;font-size:13px;color:var(--mut);line-height:1.6}
+.acc-inner ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.acc-inner li{padding-left:14px;position:relative}
+.acc-inner li:before{content:"·";position:absolute;left:2px;color:var(--accent-color);font-weight:700}
+.acc-inner li b{color:var(--txt)}
+.pts{display:flex;flex-direction:column;gap:8px}
+.pt{display:flex;gap:10px;align-items:baseline;font-size:12.5px}
+.pt .code{font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--accent-color);letter-spacing:1px;min-width:42px}
+.pt .py{color:var(--txt);font-weight:600;min-width:70px}
+.pt .rep{color:var(--mut)}
+
+footer{text-align:center;font-size:11px;color:var(--mut);letter-spacing:1px;padding:30px 0 10px}
+@media(max-width:520px){.htitle{font-size:19px}.dhead h2{font-size:25px}.step .dur{min-width:40px}}
+</style></head><body>
+
+<header>
+  <a class="hbtn" href="https://skeunou.github.io/mtc/">← MTC</a>
+  <div class="htitle">FICHES <span>ROUTINE</span></div>
+</header>
+
+<div class="wrap">
+
+  <!-- ===== LISTE ===== -->
+  <div id="list">
+    <div class="intro">
+      <h2>☀️ Réveil musculaire du matin</h2>
+      <p>Deux variantes de Qi Gong à <b style="color:var(--txt)">alterner au quotidien</b> pour faire émerger le Yang, lever la stagnation du Qi du Foie et ramener le Wei Qi en surface. Chacune ≈ 3 min 30, suivie du bloc abdos anti-flexion.</p>
+      <div class="flow">
+        <span class="chip">Réveil A <i>ou</i> B</span>
+        <span class="arw">→</span>
+        <span class="chip">Clôture</span>
+        <span class="arw">→</span>
+        <span class="chip mut">Abdos anti-flexion</span>
+      </div>
+      <div class="legend">
+        <span class="leg"><span class="dot" style="background:var(--insp)"></span>inspire</span>
+        <span class="leg"><span class="dot" style="background:var(--exp)"></span>expire</span>
+        <span class="leg"><span class="dot" style="background:var(--libre)"></span>libre</span>
+      </div>
+    </div>
+    <div class="cards" id="cards"></div>
+  </div>
+
+  <!-- ===== DETAIL ===== -->
+  <div id="detail"></div>
+
+  <footer>Construit sur mesure · Données locales · Aucune pub</footer>
+</div>
+
+<script>
+/* ---------- DONNÉES (extensible : ajouter un objet = une fiche de plus) ---------- */
+const FICHES = [
+  {
+    id:"reveil-A", variante:"A", couleur:"var(--insp)",
+    titre:"Réveil musculaire", sous:"Axe vertical · décompression",
+    accent:"Axe vertical, décompression du rachis, ondulation.",
+    duree:"≈ 3 min 25", alterne:"Variante B",
+    objectif:"Faire émerger le Yang, lever la stagnation matinale du Qi du Foie, ramener le Wei Qi en surface et allumer le Dantian inférieur avant le bloc abdominal.",
+    syndrome:"Stagnation du Qi du Foie au réveil · Yang non émergé · Wei Qi non remonté",
+    meridiens:["Foie","Vessie","San Jiao","Dai Mai","Ren Mai"],
+    securite:"Pas de flexion lombaire lestée à froid (disques hydratés → rachis vulnérable).",
+    sequence:[
+      {ord:"A", nom:"Ancrage Wuji + souffle Dantian", cible:"Dantian inf. · RM6 Qihai · transverse", souffle:"Abdominal, 5-6 cycles", dur:35},
+      {ord:"B", nom:"Soutenir le Ciel", cible:"San Jiao · décompression rachis", souffle:"Inspire = monte / expire = descend", dur:45},
+      {ord:"C", nom:"Rotation de la taille", cible:"Dai Mai · DM4 Mingmen · obliques", souffle:"Libre, fluide", dur:40},
+      {ord:"D", nom:"Ondulation du rachis", cible:"Vessie (Taiyang) · psoas", souffle:"Expire = enroule", dur:40},
+      {ord:"E", nom:"Pai Da (tapotements)", cible:"Wei Qi surface · V23 Shenshu", souffle:"Expire sur la frappe", dur:30}
+    ],
+    cloture:"<b>Clôture (5 s)</b> : mains sur Dantian, 2 respirations → bloc abdos.",
+    details:[
+      "<b>A</b> — Mains 3 cun sous l'ombilic. Le ventre gonfle puis rentre (transverse). Sommet du crâne suspendu (Bai Hui).",
+      "<b>B</b> — Doigts croisés, paumes vers le ciel, grand étirement de l'axe. 4-5 rép.",
+      "<b>C</b> — Talons fixes, genoux déverrouillés, bras ballants qui fouettent les flancs.",
+      "<b>D</b> — Enroule/déroule vertèbre par vertèbre, mains sur cuisses. Prépare les lombaires.",
+      "<b>E</b> — Paumes creuses : bas-ventre, crêtes iliaques, lombes (Shenshu)."
+    ],
+    logique:"Au réveil le Yang est immergé, le <b>Qi du Foie stagne</b> (le Foie gouverne le libre cours du Qi et les tendons/Jin), le <b>Wei Qi</b> n'est pas en surface, le Sang n'est pas mobilisé → raideur. La séquence fait monter le Yang, lève la stagnation, irrigue les muscles et allume le Dantian. Le souffle de l'étape A amorce le verrouillage profond (transverse) réutilisé dans le bloc abdos.",
+    gardeFous:[
+      "À froid : 1<sup>re</sup> rép = exploration, pas d'amplitude maximale.",
+      "Rotation (C) : ne pas vriller le genou (talons ancrés, genoux souples).",
+      "Montée des bras (B) : si vertige (hypotension orthostatique), ralentir, talons au sol.",
+      "<b>À NE PAS faire</b> : crunch/sit-up lesté juste après → anti-flexion d'abord."
+    ],
+    points:[
+      {code:"RM6", py:"Qihai", rep:"1,5 cun sous l'ombilic"},
+      {code:"DM4", py:"Mingmen", rep:"sous L2, en regard de l'ombilic"},
+      {code:"V23", py:"Shenshu", rep:"1,5 cun lat. de DM4, niveau L2"}
+    ]
+  },
+  {
+    id:"reveil-B", variante:"B", couleur:"var(--exp)",
+    titre:"Réveil musculaire", sous:"Plan frontal · ouverture",
+    accent:"Plan frontal, ouverture thoracique, mobilisation circulaire du bassin, secouement.",
+    duree:"≈ 3 min 30", alterne:"Variante A",
+    objectif:"Mêmes cibles que la Variante A (émergence du Yang, levée de la stagnation du Foie, Wei Qi en surface, Dantian allumé) via des chaînes différentes pour éviter la lassitude.",
+    syndrome:"Stagnation du Qi du Foie au réveil · Yang non émergé · Wei Qi non remonté",
+    meridiens:["Foie","Poumon","Vésicule Biliaire","Dai Mai","Ren Mai","Du Mai"],
+    securite:"Pas de flexion lombaire lestée à froid. Roseau (3) : rester dans le plan frontal, pas d'enroulement antérieur.",
+    sequence:[
+      {ord:"1", nom:"Ouvrir / Fermer le Dantian", cible:"Dantian inf. · RM6 Qihai · transverse", souffle:"Inspire = écarte / expire = rapproche", dur:35},
+      {ord:"2", nom:"Ouvrir la Poitrine", cible:"Poumon (Métal) · Zong Qi thorax", souffle:"Inspire = ouvre / expire = croise", dur:40},
+      {ord:"3", nom:"Le Roseau dans le Vent", cible:"Dai Mai · VB · flancs / obliques", souffle:"Expire dans l'inclinaison", dur:45},
+      {ord:"4", nom:"Tourner la Meule", cible:"DM4 Mingmen · psoas · hanches", souffle:"Libre, lent", dur:40},
+      {ord:"5", nom:"Secouer le Corps", cible:"Wei Qi surface · circulation Qi/Sang", souffle:"Libre, relâché", dur:30}
+    ],
+    cloture:"<b>Clôture (~15 s)</b> : paumes frottées chaudes sur Shenshu (V23) / Mingmen (DM4), de haut en bas pour réchauffer les Reins, puis mains sur Dantian, 2 respirations → bloc abdos.",
+    details:[
+      "<b>1</b> — Paumes en regard sous l'ombilic. Inspire : étire la « boule » de Qi ; expire : comprime sans toucher. 6 cycles.",
+      "<b>2</b> — Bras devant, paumes face à face. Inspire : ouvre grand le sternum ; expire : croise les avant-bras. 5 rép. Extension thoracique, <b>pas lombaire</b>.",
+      "<b>3</b> — Un bras le long de l'oreille, inclinaison latérale ; expire dans l'inclinaison. 3/côté. Plan frontal strict.",
+      "<b>4</b> — Mains aux hanches, grands cercles du bassin, lents. 4 + 4. Le bassin tourne, pas le genou.",
+      "<b>5</b> — Petits rebonds souples sur les genoux ; tout le corps tremble (mâchoire/nuque/épaules relâchées). 20-30 s."
+    ],
+    logique:"Même finalité que la Variante A : Yang à faire émerger, <b>Qi du Foie</b> à remettre en mouvement, <b>Wei Qi</b> à ramener en surface, Dantian à allumer. Les leviers changent : ouverture du <b>plan frontal et du thorax</b> (Poumon, montée du Yang), <b>flexion latérale</b> (Dai Mai / VB sur les flancs), <b>mobilisation circulaire du bassin</b> (Mingmen) et <b>secouement</b> (circulation).",
+    gardeFous:[
+      "À froid : 1<sup>re</sup> rép = exploration, amplitude modérée.",
+      "<b>Roseau (3)</b> : rester dans le plan frontal, ne pas s'enrouler vers l'avant, pas d'à-coups.",
+      "<b>Meule (4)</b> : c'est le bassin qui tourne, pas le genou (genoux souples).",
+      "<b>Secouer (5)</b> : relâcher mâchoire / nuque / épaules ; si vertige, ralentir.",
+      "<b>Ouvrir la poitrine (2)</b> : extension thoracique, ne pas cambrer fort les lombaires."
+    ],
+    points:[
+      {code:"RM6", py:"Qihai", rep:"1,5 cun sous l'ombilic"},
+      {code:"DM4", py:"Mingmen", rep:"sous L2, en regard de l'ombilic"},
+      {code:"V23", py:"Shenshu", rep:"1,5 cun lat. de DM4, niveau L2"}
+    ]
+  }
+];
+
+/* ---------- HELPERS ---------- */
+function colorSouffle(s){
+  return s
+    .replace(/inspire/gi, m=>'<span class="i-insp">'+m+'</span>')
+    .replace(/expire/gi,  m=>'<span class="i-exp">'+m+'</span>')
+    .replace(/libre/gi,   m=>'<span class="i-libre">'+m+'</span>')
+    .replace(/abdominal/gi,m=>'<span class="i-insp">'+m+'</span>');
+}
+function fmtDur(sec){
+  return sec>=60 ? Math.floor(sec/60)+'<small>min</small>'+(sec%60?(sec%60):'') : sec+'<small>s</small>';
+}
+function totalDur(seq){
+  const t=seq.reduce((a,x)=>a+x.dur,0);
+  const m=Math.floor(t/60), s=t%60;
+  return m+' min '+(s<10?'0'+s:s);
+}
+
+/* ---------- LISTE ---------- */
+function renderList(){
+  document.getElementById('cards').innerHTML = FICHES.map(f=>`
+    <div class="card" style="--accent-color:${f.couleur}" onclick="openFiche('${f.id}')">
+      <div class="card-head">
+        <span class="varbadge">${f.variante}</span>
+        <span class="card-tag">${f.meridiens.length} méridiens</span>
+      </div>
+      <div class="card-name">${f.titre.toUpperCase()} — VARIANTE ${f.variante}</div>
+      <div class="card-accent">${f.accent}</div>
+      <div class="card-foot"><span>${f.duree}</span><span class="arw">→</span></div>
+    </div>`).join('');
+}
+
+/* ---------- DETAIL ---------- */
+function openFiche(id){
+  const f = FICHES.find(x=>x.id===id);
+  const seq = f.sequence.map(st=>`
+    <div class="step">
+      <div class="ord">${st.ord}</div>
+      <div class="body">
+        <div class="nm">${st.nom}</div>
+        <div class="cible">${st.cible}</div>
+        <div class="souffle">${colorSouffle(st.souffle)}</div>
+      </div>
+      <div class="dur">${fmtDur(st.dur)}</div>
+    </div>`).join('');
+
+  const details = f.details.map(d=>`<li>${d}</li>`).join('');
+  const gf = f.gardeFous.map(d=>`<li>${d}</li>`).join('');
+  const pts = f.points.map(p=>`<div class="pt"><span class="code">${p.code}</span><span class="py">${p.py}</span><span class="rep">${p.rep}</span></div>`).join('');
+
+  document.getElementById('detail').innerHTML = `
+    <div class="dtop"><button class="dback" onclick="closeFiche()">← Toutes les fiches</button></div>
+    <div class="dhead" style="--accent-color:${f.couleur}">
+      <div class="dvar">VARIANTE ${f.variante} · ${f.sous.toUpperCase()}</div>
+      <h2>${f.titre}</h2>
+      <div class="dacc">${f.accent}</div>
+      <div class="meta">
+        <span class="m"><b>Durée</b> ${f.duree}</span>
+        <span class="m"><b>Alterne avec</b> ${f.alterne}</span>
+        <span class="m"><b>Puis</b> abdos anti-flexion</span>
+      </div>
+    </div>
+
+    <div class="sec-warn">
+      <span class="ic">⚠️</span>
+      <span class="txt"><b>Sécurité absolue —</b> ${f.securite}</span>
+    </div>
+
+    <div style="--accent-color:${f.couleur}">
+      <div class="block-title"><span class="n">◆</span> LA SÉQUENCE</div>
+      <div class="seq">${seq}</div>
+      <div class="seq-total">Total actif : <b>${totalDur(f.sequence)}</b></div>
+      <div class="cloture">${f.cloture}</div>
+
+      <div class="acc"><button class="acc-h" onclick="tog(this)">🎯 Détails clés par mouvement <span class="ch">▼</span></button><div class="acc-c"><div class="acc-inner"><ul>${details}</ul></div></div></div>
+      <div class="acc"><button class="acc-h" onclick="tog(this)">☯️ Logique MTC <span class="ch">▼</span></button><div class="acc-c"><div class="acc-inner">${f.logique}<br><br><b style="color:var(--txt)">Syndrome cible :</b> ${f.syndrome}</div></div></div>
+      <div class="acc"><button class="acc-h" onclick="tog(this)">🛡️ Garde-fous <span class="ch">▼</span></button><div class="acc-c"><div class="acc-inner"><ul>${gf}</ul></div></div></div>
+      <div class="acc"><button class="acc-h" onclick="tog(this)">📍 Points-clés <span class="ch">▼</span></button><div class="acc-c"><div class="acc-inner"><div class="pts">${pts}</div></div></div></div>
+    </div>`;
+
+  document.getElementById('list').style.display='none';
+  document.getElementById('detail').style.display='block';
+  window.scrollTo(0,0);
+}
+function closeFiche(){
+  document.getElementById('detail').style.display='none';
+  document.getElementById('list').style.display='block';
+  window.scrollTo(0,0);
+}
+function tog(btn){
+  const acc=btn.parentElement, c=acc.querySelector('.acc-c');
+  if(acc.classList.contains('open')){acc.classList.remove('open');c.style.maxHeight=null;}
+  else{acc.classList.add('open');c.style.maxHeight=c.scrollHeight+'px';}
+}
+
+renderList();
+</script>
+</body></html>
