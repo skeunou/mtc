@@ -71,6 +71,14 @@ header{position:sticky;top:0;z-index:20;background:rgba(13,13,15,.92);backdrop-f
 .seq{display:flex;flex-direction:column;gap:8px}
 .step{background:var(--surf);border:1px solid var(--bdr);border-radius:10px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start}
 .step .ord{font-family:'Bebas Neue',sans-serif;font-size:24px;line-height:1;color:var(--accent-color);min-width:26px;text-align:center;padding-top:1px}
+.step .thumb{position:relative;width:58px;flex-shrink:0;aspect-ratio:3/4;border-radius:8px;overflow:hidden;cursor:zoom-in;background:var(--surf2);border:1px solid var(--bdr)}
+.step .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.step .thumb .ordb{position:absolute;top:3px;left:3px;font-family:'Bebas Neue',sans-serif;font-size:14px;line-height:1;color:#0d0d0f;background:var(--accent-color);border-radius:5px;padding:2px 5px;letter-spacing:.5px}
+#lb{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;flex-direction:column;padding:24px;cursor:zoom-out}
+#lb.on{display:flex}
+#lb img{max-width:100%;max-height:80vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+#lb .cap{color:var(--txt);font-size:14px;font-weight:600;margin-top:14px;text-align:center;letter-spacing:.3px}
+#lb .x{position:absolute;top:14px;right:18px;color:var(--mut);font-size:28px;line-height:1}
 .step .body{flex:1;min-width:0}
 .step .nm{font-size:14.5px;font-weight:600;color:var(--txt);line-height:1.25}
 .step .cible{font-size:11.5px;color:var(--mut);margin-top:3px;line-height:1.45}
@@ -141,6 +149,8 @@ footer{text-align:center;font-size:11px;color:var(--mut);letter-spacing:1px;padd
   <footer>Construit sur mesure · Données locales · Aucune pub</footer>
 </div>
 
+<div id="lb" onclick="closeLb()"><span class="x">✕</span><img id="lbimg" src="" alt=""><div class="cap" id="lbcap"></div></div>
+
 <script>
 /* ---------- DONNÉES (extensible : ajouter un objet = une fiche de plus) ---------- */
 const FICHES = [
@@ -154,11 +164,11 @@ const FICHES = [
     meridiens:["Foie","Vessie","San Jiao","Dai Mai","Ren Mai"],
     securite:"Pas de flexion lombaire lestée à froid (disques hydratés → rachis vulnérable).",
     sequence:[
-      {ord:"A", nom:"Ancrage Wuji + souffle Dantian", cible:"Dantian inf. · RM6 Qihai · transverse", souffle:"Abdominal, 5-6 cycles", dur:35},
-      {ord:"B", nom:"Soutenir le Ciel", cible:"San Jiao · décompression rachis", souffle:"Inspire = monte / expire = descend", dur:45},
-      {ord:"C", nom:"Rotation de la taille", cible:"Dai Mai · DM4 Mingmen · obliques", souffle:"Libre, fluide", dur:40},
-      {ord:"D", nom:"Ondulation du rachis", cible:"Vessie (Taiyang) · psoas", souffle:"Expire = enroule", dur:40},
-      {ord:"E", nom:"Pai Da (tapotements)", cible:"Wei Qi surface · V23 Shenshu", souffle:"Expire sur la frappe", dur:30}
+      {ord:"A", nom:"Ancrage Wuji + souffle Dantian", cible:"Dantian inf. · RM6 Qihai · transverse", souffle:"Abdominal, 5-6 cycles", dur:35, img:"reveil-a-ancrage-wuji"},
+      {ord:"B", nom:"Soutenir le Ciel", cible:"San Jiao · décompression rachis", souffle:"Inspire = monte / expire = descend", dur:45, img:"reveil-a-soutenir-ciel"},
+      {ord:"C", nom:"Rotation de la taille", cible:"Dai Mai · DM4 Mingmen · obliques", souffle:"Libre, fluide", dur:40, img:"reveil-a-rotation-taille"},
+      {ord:"D", nom:"Ondulation du rachis", cible:"Vessie (Taiyang) · psoas", souffle:"Expire = enroule", dur:40, img:"reveil-a-ondulation-rachis"},
+      {ord:"E", nom:"Pai Da (tapotements)", cible:"Wei Qi surface · V23 Shenshu", souffle:"Expire sur la frappe", dur:30, img:"reveil-a-paida"}
     ],
     cloture:"<b>Clôture (5 s)</b> : mains sur Dantian, 2 respirations → bloc abdos.",
     details:[
@@ -191,11 +201,11 @@ const FICHES = [
     meridiens:["Foie","Poumon","Vésicule Biliaire","Dai Mai","Ren Mai","Du Mai"],
     securite:"Pas de flexion lombaire lestée à froid. Roseau (3) : rester dans le plan frontal, pas d'enroulement antérieur.",
     sequence:[
-      {ord:"1", nom:"Ouvrir / Fermer le Dantian", cible:"Dantian inf. · RM6 Qihai · transverse", souffle:"Inspire = écarte / expire = rapproche", dur:35},
-      {ord:"2", nom:"Ouvrir la Poitrine", cible:"Poumon (Métal) · Zong Qi thorax", souffle:"Inspire = ouvre / expire = croise", dur:40},
-      {ord:"3", nom:"Le Roseau dans le Vent", cible:"Dai Mai · VB · flancs / obliques", souffle:"Expire dans l'inclinaison", dur:45},
-      {ord:"4", nom:"Tourner la Meule", cible:"DM4 Mingmen · psoas · hanches", souffle:"Libre, lent", dur:40},
-      {ord:"5", nom:"Secouer le Corps", cible:"Wei Qi surface · circulation Qi/Sang", souffle:"Libre, relâché", dur:30}
+      {ord:"1", nom:"Ouvrir / Fermer le Dantian", cible:"Dantian inf. · RM6 Qihai · transverse", souffle:"Inspire = écarte / expire = rapproche", dur:35, img:"reveil-b-ouvrir-fermer-dantian"},
+      {ord:"2", nom:"Ouvrir la Poitrine", cible:"Poumon (Métal) · Zong Qi thorax", souffle:"Inspire = ouvre / expire = croise", dur:40, img:"reveil-b-ouvrir-poitrine"},
+      {ord:"3", nom:"Le Roseau dans le Vent", cible:"Dai Mai · VB · flancs / obliques", souffle:"Expire dans l'inclinaison", dur:45, img:"reveil-b-roseau"},
+      {ord:"4", nom:"Tourner la Meule", cible:"DM4 Mingmen · psoas · hanches", souffle:"Libre, lent", dur:40, img:"reveil-b-tourner-meule"},
+      {ord:"5", nom:"Secouer le Corps", cible:"Wei Qi surface · circulation Qi/Sang", souffle:"Libre, relâché", dur:30, img:"reveil-b-secouer"}
     ],
     cloture:"<b>Clôture (~15 s)</b> : paumes frottées chaudes sur Shenshu (V23) / Mingmen (DM4), de haut en bas pour réchauffer les Reins, puis mains sur Dantian, 2 respirations → bloc abdos.",
     details:[
@@ -257,7 +267,9 @@ function openFiche(id){
   const f = FICHES.find(x=>x.id===id);
   const seq = f.sequence.map(st=>`
     <div class="step">
-      <div class="ord">${st.ord}</div>
+      ${st.img
+        ? `<div class="thumb" onclick="lightbox('img/${st.img}.webp','${st.ord} · ${st.nom.replace(/'/g,"\\'")}')"><img src="img/${st.img}.webp" loading="lazy" alt=""><span class="ordb">${st.ord}</span></div>`
+        : `<div class="ord">${st.ord}</div>`}
       <div class="body">
         <div class="nm">${st.nom}</div>
         <div class="cible">${st.cible}</div>
@@ -314,6 +326,12 @@ function tog(btn){
   if(acc.classList.contains('open')){acc.classList.remove('open');c.style.maxHeight=null;}
   else{acc.classList.add('open');c.style.maxHeight=c.scrollHeight+'px';}
 }
+function lightbox(src,cap){
+  document.getElementById('lbimg').src=src;
+  document.getElementById('lbcap').textContent=cap||'';
+  document.getElementById('lb').classList.add('on');
+}
+function closeLb(){document.getElementById('lb').classList.remove('on');}
 
 renderList();
 </script>
