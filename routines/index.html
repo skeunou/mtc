@@ -113,6 +113,32 @@ header{position:sticky;top:0;z-index:20;background:rgba(13,13,15,.92);backdrop-f
 
 footer{text-align:center;font-size:11px;color:var(--mut);letter-spacing:1px;padding:30px 0 10px}
 @media(max-width:520px){.htitle{font-size:19px}.dhead h2{font-size:25px}.step .dur{min-width:40px}}
+.start-btn{width:100%;background:var(--accent-color);color:#0d0d0f;border:none;border-radius:12px;padding:15px;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1.5px;cursor:pointer;margin:2px 0 18px;transition:.15s}
+.start-btn:active{transform:scale(.98)}
+#player{position:fixed;inset:0;z-index:200;background:var(--bg);display:none;flex-direction:column}
+#player.on{display:flex}
+.pl-top{display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
+.pl-x{background:none;border:1px solid var(--bdr);color:var(--mut);font-size:15px;width:34px;height:34px;border-radius:9px;cursor:pointer}
+.pl-count{font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:15px;color:var(--accent-color)}
+.pl-progwrap{height:4px;background:var(--surf2);margin:0 16px;border-radius:2px;overflow:hidden}
+.pl-prog{height:100%;background:var(--accent-color);width:0;transition:width .35s}
+.pl-stage{flex:1;display:flex;flex-direction:column;align-items:center;padding:12px 18px;overflow:hidden}
+.pl-imgwrap{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;width:100%}
+.pl-imgwrap img{max-height:100%;max-width:100%;object-fit:contain;border-radius:12px}
+.pl-ord{position:absolute;top:8px;left:8px;font-family:'Bebas Neue',sans-serif;font-size:20px;color:#0d0d0f;background:var(--accent-color);border-radius:7px;padding:2px 9px;letter-spacing:.5px}
+.pl-name{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1px;margin-top:10px;text-align:center;line-height:1.05}
+.pl-cible{font-size:12px;color:var(--mut);text-align:center;margin-top:4px}
+.pl-souffle{font-size:14px;margin-top:6px;text-align:center}
+.pl-timer{font-family:'Bebas Neue',sans-serif;font-size:70px;line-height:1;color:var(--accent-color);margin:6px 0 8px}
+.pl-ctrls{display:flex;gap:16px;align-items:center;margin-bottom:6px}
+.pl-btn{background:var(--surf2);border:1px solid var(--bdr);color:var(--txt);font-size:19px;width:52px;height:52px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.pl-btn.pl-main{width:64px;height:64px;font-size:23px;background:var(--accent-color);color:#0d0d0f;border:none}
+.pl-done{flex:1;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;gap:10px}
+.pl-done.on{display:flex}
+.pl-check{font-size:38px;color:var(--grn)}
+.pl-done h3{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:1px}
+.pl-done p{font-size:13px;color:var(--mut);line-height:1.55;max-width:340px}
+.pl-cta{background:var(--acc);color:#0d0d0f;border:none;border-radius:10px;padding:13px 26px;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;cursor:pointer;margin-top:8px}
 </style></head><body>
 
 <header>
@@ -150,6 +176,33 @@ footer{text-align:center;font-size:11px;color:var(--mut);letter-spacing:1px;padd
 </div>
 
 <div id="lb" onclick="closeLb()"><span class="x">✕</span><img id="lbimg" src="" alt=""><div class="cap" id="lbcap"></div></div>
+
+<div id="player">
+  <div class="pl-top">
+    <button class="pl-x" onclick="quitPlayer()">✕</button>
+    <div class="pl-count" id="pl-count"></div>
+    <div style="width:34px"></div>
+  </div>
+  <div class="pl-progwrap"><div class="pl-prog" id="pl-prog"></div></div>
+  <div class="pl-stage" id="pl-stage">
+    <div class="pl-imgwrap"><img id="pl-img" src="" alt=""><span class="pl-ord" id="pl-ord"></span></div>
+    <div class="pl-name" id="pl-name"></div>
+    <div class="pl-cible" id="pl-cible"></div>
+    <div class="pl-souffle" id="pl-souffle"></div>
+    <div class="pl-timer" id="pl-timer">0</div>
+    <div class="pl-ctrls">
+      <button class="pl-btn" onclick="plPrev()">⏮</button>
+      <button class="pl-btn pl-main" id="pl-pause" onclick="togglePause()">⏸</button>
+      <button class="pl-btn" onclick="plNext()">⏭</button>
+    </div>
+  </div>
+  <div class="pl-done" id="pl-done">
+    <div class="pl-check">✓</div>
+    <h3>Routine terminée</h3>
+    <p id="pl-cloture"></p>
+    <button class="pl-cta" onclick="quitPlayer()">Terminer</button>
+  </div>
+</div>
 
 <script>
 /* ---------- DONNÉES (extensible : ajouter un objet = une fiche de plus) ---------- */
@@ -338,6 +391,7 @@ function renderList(){
 
 /* ---------- DETAIL ---------- */
 function openFiche(id){
+  CUR=id;
   const f = FICHES.find(x=>x.id===id);
   const seq = f.sequence.map(st=>`
     <div class="step">
@@ -368,6 +422,8 @@ function openFiche(id){
         <span class="m"><b>Puis</b> abdos anti-flexion</span>
       </div>
     </div>
+
+    <button class="start-btn" onclick="startRoutine()">▶ DÉMARRER LA ROUTINE</button>
 
     <div class="sec-warn">
       <span class="ic">⚠️</span>
@@ -406,6 +462,81 @@ function lightbox(src,cap){
   document.getElementById('lb').classList.add('on');
 }
 function closeLb(){document.getElementById('lb').classList.remove('on');}
+
+/* ---------- MODE GUIDÉ ---------- */
+let CUR=null;
+const PL={fiche:null,i:0,rem:0,timer:null,paused:false,wake:null,ac:null};
+function $(id){return document.getElementById(id);}
+
+function startRoutine(){
+  const f=FICHES.find(x=>x.id===CUR); if(!f) return;
+  PL.fiche=f; PL.i=0; PL.paused=false;
+  try{PL.ac=new (window.AudioContext||window.webkitAudioContext)();}catch(e){PL.ac=null;}
+  requestWake();
+  $('player').classList.add('on');
+  $('player').style.setProperty('--accent-color', f.couleur);
+  loadStep();
+}
+function loadStep(){
+  const f=PL.fiche;
+  if(PL.i>=f.sequence.length){ finishRoutine(); return; }
+  $('pl-done').classList.remove('on'); $('pl-stage').style.display='flex';
+  const st=f.sequence[PL.i];
+  PL.rem=st.dur; PL.paused=false;
+  $('pl-prog').style.width=Math.round(PL.i/f.sequence.length*100)+'%';
+  $('pl-count').textContent='Étape '+(PL.i+1)+' / '+f.sequence.length;
+  $('pl-img').src='img/'+st.img+'.webp';
+  $('pl-ord').textContent=st.ord;
+  $('pl-name').textContent=st.nom;
+  $('pl-cible').textContent=st.cible;
+  $('pl-souffle').innerHTML=colorSouffle(st.souffle);
+  updTimer(); setPauseBtn();
+  clearInterval(PL.timer); PL.timer=setInterval(tick,1000);
+}
+function tick(){
+  if(PL.paused) return;
+  PL.rem--;
+  if(PL.rem<=0){ clearInterval(PL.timer); updTimer(); beep(); PL.i++; setTimeout(loadStep,400); return; }
+  updTimer();
+}
+function updTimer(){
+  const s=Math.max(PL.rem,0);
+  $('pl-timer').textContent = s>=60 ? Math.floor(s/60)+':'+String(s%60).padStart(2,'0') : s;
+}
+function togglePause(){ PL.paused=!PL.paused; setPauseBtn(); }
+function setPauseBtn(){ $('pl-pause').textContent = PL.paused?'▶':'⏸'; }
+function plPrev(){ clearInterval(PL.timer); if(PL.i>0)PL.i--; loadStep(); }
+function plNext(){ clearInterval(PL.timer); PL.i++; loadStep(); }
+function finishRoutine(){
+  clearInterval(PL.timer);
+  $('pl-stage').style.display='none';
+  $('pl-cloture').innerHTML=PL.fiche.cloture;
+  $('pl-done').classList.add('on');
+  $('pl-prog').style.width='100%';
+  $('pl-count').textContent='Terminé';
+}
+function quitPlayer(){
+  clearInterval(PL.timer); releaseWake();
+  $('player').classList.remove('on');
+  $('pl-done').classList.remove('on'); $('pl-stage').style.display='flex';
+}
+function beep(){
+  if(!PL.ac) return;
+  try{
+    if(PL.ac.state==='suspended') PL.ac.resume();
+    [880,1100].forEach((fr,k)=>{
+      const o=PL.ac.createOscillator(), g=PL.ac.createGain();
+      o.frequency.value=fr; o.connect(g); g.connect(PL.ac.destination);
+      const t=PL.ac.currentTime+k*0.18;
+      g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(0.4,t+0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001,t+0.15);
+      o.start(t); o.stop(t+0.16);
+    });
+  }catch(e){}
+}
+async function requestWake(){ try{ if('wakeLock' in navigator) PL.wake=await navigator.wakeLock.request('screen'); }catch(e){} }
+function releaseWake(){ try{ PL.wake&&PL.wake.release(); }catch(e){} PL.wake=null; }
+document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible' && $('player').classList.contains('on')) requestWake(); });
 
 renderList();
 </script>
