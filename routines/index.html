@@ -126,9 +126,9 @@ footer{text-align:center;font-size:11px;color:var(--mut);letter-spacing:1px;padd
   <div id="list">
     <div class="intro">
       <h2>☀️ Réveil musculaire du matin</h2>
-      <p>Deux variantes de Qi Gong à <b style="color:var(--txt)">alterner au quotidien</b> pour faire émerger le Yang, lever la stagnation du Qi du Foie et ramener le Wei Qi en surface. Chacune ≈ 3 min 30, suivie du bloc abdos anti-flexion.</p>
+      <p>Quatre variantes de Qi Gong à <b style="color:var(--txt)">alterner au quotidien</b> pour faire émerger le Yang, lever la stagnation du Qi du Foie et ramener le Wei Qi en surface. Chacune ≈ 3-4 min, suivie du bloc abdos anti-flexion.</p>
       <div class="flow">
-        <span class="chip">Réveil A <i>ou</i> B</span>
+        <span class="chip">Réveil A · B · C · D</span>
         <span class="arw">→</span>
         <span class="chip">Clôture</span>
         <span class="arw">→</span>
@@ -158,7 +158,7 @@ const FICHES = [
     id:"reveil-A", variante:"A", couleur:"var(--insp)",
     titre:"Réveil musculaire", sous:"Axe vertical · décompression",
     accent:"Axe vertical, décompression du rachis, ondulation.",
-    duree:"≈ 3 min 25", alterne:"Variante B",
+    duree:"≈ 3 min 25", alterne:"B · C · D",
     objectif:"Faire émerger le Yang, lever la stagnation matinale du Qi du Foie, ramener le Wei Qi en surface et allumer le Dantian inférieur avant le bloc abdominal.",
     syndrome:"Stagnation du Qi du Foie au réveil · Yang non émergé · Wei Qi non remonté",
     meridiens:["Foie","Vessie","San Jiao","Dai Mai","Ren Mai"],
@@ -195,7 +195,7 @@ const FICHES = [
     id:"reveil-B", variante:"B", couleur:"var(--exp)",
     titre:"Réveil musculaire", sous:"Plan frontal · ouverture",
     accent:"Plan frontal, ouverture thoracique, mobilisation circulaire du bassin, secouement.",
-    duree:"≈ 3 min 30", alterne:"Variante A",
+    duree:"≈ 3 min 30", alterne:"A · C · D",
     objectif:"Mêmes cibles que la Variante A (émergence du Yang, levée de la stagnation du Foie, Wei Qi en surface, Dantian allumé) via des chaînes différentes pour éviter la lassitude.",
     syndrome:"Stagnation du Qi du Foie au réveil · Yang non émergé · Wei Qi non remonté",
     meridiens:["Foie","Poumon","Vésicule Biliaire","Dai Mai","Ren Mai","Du Mai"],
@@ -227,6 +227,80 @@ const FICHES = [
       {code:"RM6", py:"Qihai", rep:"1,5 cun sous l'ombilic"},
       {code:"DM4", py:"Mingmen", rep:"sous L2, en regard de l'ombilic"},
       {code:"V23", py:"Shenshu", rep:"1,5 cun lat. de DM4, niveau L2"}
+    ]
+  },
+  {
+    id:"reveil-C", variante:"C", couleur:"var(--purp)",
+    titre:"Réveil articulaire", sous:"Haut du corps · circulation",
+    accent:"Mobilité articulaire douce, dispersion des stagnations nocturnes, circulation vers les extrémités.",
+    duree:"≈ 3 min", alterne:"A · B · D",
+    objectif:"Disperser la stagnation nocturne des épaules et de la nuque, relancer la circulation du Qi et du Sang vers les mains, stimuler les points Jing (puits) aux extrémités et ramener le Wei Qi en surface.",
+    syndrome:"Stagnation nocturne (épaules/nuque) · Qi/Sang non circulant aux extrémités · Wei Qi non remonté",
+    meridiens:["Vésicule Biliaire","Intestin Grêle","San Jiao","Poumon","Gros Intestin","Dai Mai"],
+    securite:"Nuque en douceur, amplitude progressive à froid ; aucun à-coup sur les cervicales.",
+    sequence:[
+      {ord:"1", nom:"Éveil de la nuque", cible:"Cervicales · VB / Vessie nuque", souffle:"Libre, lent", dur:35, img:"reveil-c-nuque"},
+      {ord:"2", nom:"Cercles d'épaules & omoplates", cible:"IG / San Jiao · Zong Qi", souffle:"Inspire = montent / expire = descendent", dur:40, img:"reveil-c-epaules"},
+      {ord:"3", nom:"Torsion douce du tronc", cible:"Dai Mai · Foie", souffle:"Libre, bras ballants", dur:40, img:"reveil-c-torsion"},
+      {ord:"4", nom:"Cercles poignets, mains & chevilles", cible:"Extrémités · points Jing (puits) · San Jiao", souffle:"Libre", dur:35, img:"reveil-c-poignets-chevilles"},
+      {ord:"5", nom:"Tapotement des bras + mains chaudes", cible:"Méridiens du bras (P/GI/MC/TR) · Wei Qi", souffle:"Expire sur la frappe", dur:30, img:"reveil-c-tapotement-bras"}
+    ],
+    cloture:"<b>Clôture (5 s)</b> : mains sur Dantian, 2 respirations → bloc abdos.",
+    details:[
+      "<b>1</b> — Épaules basses et immobiles ; la tête s'incline oreille vers l'épaule, sans à-coup.",
+      "<b>2</b> — Grands cercles vers l'arrière, omoplates qui se resserrent, la poitrine s'ouvre.",
+      "<b>3</b> — Talons ancrés, genoux souples, bras relâchés qui fouettent la taille.",
+      "<b>4</b> — Ouvrir/fermer les mains, cercles de poignets et d'une cheville : réveil des petites articulations.",
+      "<b>5</b> — Main en coque, remonter l'intérieur puis descendre l'extérieur du bras ; finir mains frottées chaudes."
+    ],
+    logique:"Après une nuit d'immobilité, le <b>Qi stagne</b> dans les épaules et la nuque (trajets VB / IG / San Jiao) et le <b>Wei Qi</b> n'est pas en surface. On disperse d'abord les stagnations hautes, puis on relance la circulation vers les <b>extrémités</b> (points Jing / puits) par les cercles articulaires ; le tapotement des trajets du bras ramène le Wei Qi et réchauffe la surface.",
+    gardeFous:[
+      "À froid : 1<sup>re</sup> répétition = exploration, amplitude modérée.",
+      "Nuque (1) : mouvement lent, jamais d'à-coup ni de cercle complet forcé.",
+      "Torsion (3) : talons ancrés, genoux souples, bras relâchés.",
+      "Tapotement (5) : paumes creuses, geste doux le long du bras."
+    ],
+    points:[
+      {code:"VB20", py:"Fengchi", rep:"sous l'occiput, entre les 2 muscles (nuque)"},
+      {code:"TR5", py:"Waiguan", rep:"2 cun au-dessus du poignet, face dorsale"},
+      {code:"GI4", py:"Hegu", rep:"entre pouce et index, sommet du muscle"}
+    ]
+  },
+  {
+    id:"reveil-D", variante:"D", couleur:"var(--blue)",
+    titre:"Réveil des Reins", sous:"Chaîne postérieure · enracinement",
+    accent:"Réveil du Yang des Reins (Mingmen), chaîne postérieure, enracinement.",
+    duree:"≈ 3 min", alterne:"A · B · C",
+    objectif:"Réchauffer et réveiller le Yang des Reins (Mingmen), activer doucement la chaîne postérieure (méridien Vessie / Taiyang), enraciner et relancer la pompe veineuse des jambes.",
+    syndrome:"Yang des Reins froid au réveil · chaîne postérieure raide · manque d'ancrage",
+    meridiens:["Rein","Vessie (Taiyang)","Du Mai","Ren Mai","Dai Mai"],
+    securite:"Pas de flexion lombaire lestée à froid ; genoux souples ; pas d'adduction ni de charge (ZP).",
+    sequence:[
+      {ord:"1", nom:"Friction des Reins", cible:"DM4 Mingmen · V23 Shenshu · Yang des Reins", souffle:"Libre", dur:35, img:"reveil-d-friction-reins"},
+      {ord:"2", nom:"Bascule du bassin (chat-vache debout)", cible:"Du Mai · lombes", souffle:"Inspire = creuse / expire = arrondit", dur:40, img:"reveil-d-bascule-bassin"},
+      {ord:"3", nom:"Cercles de genoux", cible:"Estomac/Rate · Vessie · genoux", souffle:"Libre", dur:35, img:"reveil-d-cercles-genoux"},
+      {ord:"4", nom:"Montée sur demi-pointes", cible:"Rein 1 Yongquan · chevilles / mollets", souffle:"Inspire = monte / expire = descend", dur:40, img:"reveil-d-demi-pointes"},
+      {ord:"5", nom:"Posture de l'arbre (Zhan Zhuang)", cible:"Enracinement · Dantian · Yongquan", souffle:"Abdominal profond", dur:30, img:"reveil-d-arbre"}
+    ],
+    cloture:"<b>Clôture (~15 s)</b> : paumes frottées chaudes sur Shenshu (V23) / Mingmen (DM4), puis mains sur Dantian, 2 respirations → bloc abdos.",
+    details:[
+      "<b>1</b> — Paumes frottées jusqu'à être chaudes, frictionner le bas du dos de haut en bas.",
+      "<b>2</b> — Mains sur les cuisses, genoux souples ; le bassin bascule (dos creusé ↔ arrondi), petite amplitude.",
+      "<b>3</b> — Pieds joints, mains sur les genoux, petits cercles lents et contrôlés.",
+      "<b>4</b> — Monter franchement sur la pointe des pieds (Yongquan), redescendre lentement.",
+      "<b>5</b> — Genoux souples, bras arrondis devant la poitrine, crâne suspendu ; respiration abdominale, ancrage."
+    ],
+    logique:"Au réveil le <b>Yang des Reins</b> est froid et la <b>chaîne postérieure</b> (Vessie / Taiyang) raide. On réchauffe d'abord Mingmen (« porte du destin ») et les Shenshu par friction, on mobilise la colonne (Du Mai), puis on réveille les jambes et le point <b>Rein 1 (Yongquan)</b> — la « source jaillissante » sous le pied — par les demi-pointes, avant d'<b>enraciner</b> dans la posture de l'arbre.",
+    gardeFous:[
+      "À froid : amplitude modérée, aucun geste brusque.",
+      "Bascule (2) : mouvement doux, genoux souples, pas de flexion lombaire forcée.",
+      "Demi-pointes (4) : monter progressivement, redescendre contrôlé (équilibre).",
+      "<b>ZP</b> : aucune adduction ni charge — routine pensée sans stress pelvien."
+    ],
+    points:[
+      {code:"DM4", py:"Mingmen", rep:"sous L2, en regard de l'ombilic"},
+      {code:"V23", py:"Shenshu", rep:"1,5 cun lat. de DM4, niveau L2"},
+      {code:"R1", py:"Yongquan", rep:"plante du pied, 1/3 antérieur, dans le creux"}
     ]
   }
 ];
