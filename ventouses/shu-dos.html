@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Points Shu du dos — Ventouses</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0d0f; --surf:#141416; --surf2:#1c1c20; --bdr:#2a2a30;
+  --acc:#e8ff47; --acc2:#ff6b35; --warn:#ff9500; --txt:#f0f0f0;
+  --mut:#6b6b78; --grn:#4ade80; --red:#f87171; --purp:#a78bfa; --blue:#38bdf8;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:'DM Sans',sans-serif;padding-bottom:40px}
+header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:2px solid var(--acc);padding:12px 16px 10px}
+.back{font-size:11px;color:var(--mut);text-decoration:none;letter-spacing:1px}
+h1{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:2px;margin:4px 0 0;line-height:1}
+.sub{font-size:11px;color:var(--mut);margin-top:3px;letter-spacing:.5px}
+.wrap{padding:14px 12px}
+
+.filters{display:flex;gap:6px;overflow-x:auto;padding:10px 12px 4px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.f{flex:0 0 auto;background:var(--surf2);border:1px solid var(--bdr);color:var(--mut);
+   font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:1px;padding:7px 13px;
+   border-radius:20px;cursor:pointer}
+.f.on{background:var(--acc);color:#000;border-color:var(--acc)}
+
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:10px;padding:12px;margin-bottom:12px}
+.card h2{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:1.5px;margin:0 0 8px;color:var(--acc)}
+
+svg{width:100%;height:auto;display:block;touch-action:manipulation}
+.vert{fill:#26262c}
+.vlab{font-family:'DM Sans',sans-serif;font-size:9px;fill:var(--mut)}
+.guide{stroke:#33333c;stroke-width:1;stroke-dasharray:3 4}
+.glab{font-family:'DM Sans',sans-serif;font-size:8px;fill:#4a4a56}
+.pt{cursor:pointer;transition:opacity .15s}
+.pt circle{stroke:#0d0d0f;stroke-width:1.5}
+.pt text{font-family:'DM Sans',sans-serif;font-size:8.5px;font-weight:700;fill:#0d0d0f;pointer-events:none}
+.dim{opacity:.14}
+.sel circle{stroke:#fff;stroke-width:2}
+
+.legend{display:flex;gap:14px;font-size:11px;color:var(--mut);margin-top:6px;flex-wrap:wrap}
+.dotL{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+
+#detail{background:var(--surf2);border:1px solid var(--bdr);border-left:3px solid var(--acc);
+        border-radius:8px;padding:12px;min-height:74px}
+#detail .num{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1px;color:var(--acc);line-height:1}
+#detail .py{font-size:13px;font-weight:700;margin:2px 0 6px}
+#detail .row{font-size:12.5px;line-height:1.55;color:#d0d0d8}
+#detail .row b{color:var(--txt)}
+#detail .empty{font-size:12.5px;color:var(--mut)}
+.tag{display:inline-block;font-size:10px;letter-spacing:.5px;padding:2px 7px;border-radius:10px;
+     background:#000;border:1px solid var(--bdr);color:var(--mut);margin:6px 4px 0 0}
+
+.repere{font-size:12.5px;line-height:1.6;color:#d0d0d8;margin:0}
+.repere b{color:var(--acc)}
+.mini{font-size:11.5px;color:var(--mut);line-height:1.55;margin-top:8px}
+.warn{border-left:3px solid var(--acc2)}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="back" href="./">← VENTOUSES</a>
+  <h1>POINTS SHU DU DOS</h1>
+  <div class="sub">Repérage ventouses · ligne interne 1,5 cun · ligne externe 3 cun</div>
+</header>
+
+<div class="filters" id="filters"></div>
+
+<div class="wrap">
+
+  <div class="card">
+    <svg id="map" viewBox="0 0 340 600" xmlns="http://www.w3.org/2000/svg" aria-label="Schéma dorsal des points Shu"></svg>
+    <div class="legend">
+      <span><i class="dotL" style="background:#e8ff47"></i>Ligne interne — 1,5 cun</span>
+      <span><i class="dotL" style="background:#a78bfa"></i>Ligne externe — 3 cun</span>
+    </div>
+  </div>
+
+  <div class="card" style="padding:0;border:none;background:none">
+    <div id="detail"><div class="empty">Touche un point sur le schéma pour voir sa localisation et son indication.</div></div>
+  </div>
+
+  <div class="card">
+    <h2>Repères anatomiques</h2>
+    <p class="repere">
+      <b>C7</b> — vertèbre la plus saillante, nuque fléchie.<br>
+      <b>T3</b> — au niveau de l'épine de l'omoplate.<br>
+      <b>T7</b> — au niveau de la pointe basse de l'omoplate.<br>
+      <b>L4</b> — ligne joignant le sommet des deux crêtes iliaques.<br>
+      <b>S2</b> — au niveau des épines iliaques postéro-supérieures.
+    </p>
+    <p class="mini">
+      Mesures : <b style="color:#f0f0f0">1,5 cun</b> ≈ largeur de l'index + majeur de la personne massée.
+      <b style="color:#f0f0f0">3 cun</b> ≈ largeur des quatre doigts serrés.
+      Le point se situe sous l'apophyse épineuse de la vertèbre indiquée.
+    </p>
+  </div>
+
+  <div class="card warn">
+    <h2>Rappel dosage</h2>
+    <p class="mini" style="margin-top:0">
+      Aspiration légère et 6–8 min sur profil épuisé, endeuillé ou anxieux.
+      Aspiration ferme et 10–12 min réservée à la douleur mécanique sur personne robuste.
+      Jamais sur la colonne osseuse. 5 à 7 jours minimum entre deux passages sur la même zone.
+    </p>
+  </div>
+
+</div>
+
+<script>
+/* ---------- Données ---------- */
+var MID = 170, OFF1 = 25, OFF2 = 50;
+
+var LEVELS = {
+  T1:78, T2:99, T3:120, T4:141, T5:162, T6:183, T7:204, T8:225, T9:246,
+  T10:267, T11:288, T12:309, L1:337, L2:365, L3:393, L4:421, L5:449,
+  S1:476, S2:498, S3:520, S4:542
+};
+
+/* line: 1 = interne (1,5 cun) · 2 = externe (3 cun) */
+var PTS = [
+  {n:"V13",py:"Feishu",v:"T3",l:1,org:"Poumon",ind:"Deuil, tristesse, respiration bloquée, oppression haute du dos.",m:["deuil"]},
+  {n:"V14",py:"Jueyinshu",v:"T4",l:1,org:"Maître du Cœur",ind:"Oppression thoracique, palpitations liées à l'émotion.",m:["deuil"]},
+  {n:"V15",py:"Xinshu",v:"T5",l:1,org:"Cœur",ind:"Shen : anxiété, sommeil agité, ruminations nocturnes.",m:["deuil","stress"]},
+  {n:"V16",py:"Dushu",v:"T6",l:1,org:"Du Mai",ind:"Raideur dorsale médiane, oppression.",m:[]},
+  {n:"V17",py:"Geshu",v:"T7",l:1,org:"Diaphragme",ind:"Point clé : diaphragme bloqué, respiration courte, tension interscapulaire. Hui du Sang.",m:["douleur","deuil"]},
+  {n:"V18",py:"Ganshu",v:"T9",l:1,org:"Foie",ind:"Stagnation, irritabilité, tensions dorsales et scapulaires.",m:["douleur","stress"]},
+  {n:"V19",py:"Danshu",v:"T10",l:1,org:"Vésicule biliaire",ind:"Tensions latérales du tronc, amertume, décision difficile.",m:[]},
+  {n:"V20",py:"Pishu",v:"T11",l:1,org:"Rate",ind:"Rumination mentale, digestion lourde, fatigue après repas.",m:["stress","epuis"]},
+  {n:"V21",py:"Weishu",v:"T12",l:1,org:"Estomac",ind:"Charnière dorso-lombaire, digestion, nouage épigastrique.",m:["epuis"]},
+  {n:"V22",py:"Sanjiaoshu",v:"L1",l:1,org:"Triple Réchauffeur",ind:"Rétention hydrique, lombaire haute.",m:[]},
+  {n:"V23",py:"Shenshu",v:"L2",l:1,org:"Rein",ind:"Point majeur : lombalgie, épuisement de fond, peur, frilosité.",m:["douleur","epuis"]},
+  {n:"V24",py:"Qihaishu",v:"L3",l:1,org:"—",ind:"Lombalgie centrale, fatigue lombaire.",m:["douleur"]},
+  {n:"V25",py:"Dachangshu",v:"L4",l:1,org:"Gros intestin",ind:"Lombalgie basse, sciatalgie, transit.",m:["douleur"]},
+  {n:"V26",py:"Guanyuanshu",v:"L5",l:1,org:"—",ind:"Charnière lombo-sacrée, douleur basse.",m:["douleur"]},
+  {n:"V27",py:"Xiaochangshu",v:"S1",l:1,org:"Intestin grêle",ind:"Sacro-iliaque, bassin.",m:["douleur"]},
+  {n:"V28",py:"Pangguangshu",v:"S2",l:1,org:"Vessie",ind:"Sacrum, bas du bassin.",m:[]},
+
+  {n:"V42",py:"Pohu",v:"T3",l:2,org:"Porte du Po",ind:"LE point du deuil. Chagrin non exprimé, poids sur la poitrine.",m:["deuil"]},
+  {n:"V43",py:"Gaohuang",v:"T4",l:2,org:"—",ind:"Épuisement profond, vide chronique, convalescence longue.",m:["deuil","epuis"]},
+  {n:"V44",py:"Shentang",v:"T5",l:2,org:"Salle du Shen",ind:"Angoisse, agitation intérieure, cœur qui s'emballe.",m:["stress"]},
+  {n:"V45",py:"Yixi",v:"T6",l:2,org:"—",ind:"Tension interscapulaire, soupirs.",m:["stress"]},
+  {n:"V46",py:"Geguan",v:"T7",l:2,org:"Barrière du diaphragme",ind:"Blocage diaphragmatique latéral, dos noué.",m:["douleur"]},
+  {n:"V47",py:"Hunmen",v:"T9",l:2,org:"Porte du Hun",ind:"Colère rentrée, frustration, projet empêché.",m:["stress"]},
+  {n:"V48",py:"Yanggang",v:"T10",l:2,org:"—",ind:"Tension du flanc, digestion contrariée.",m:[]},
+  {n:"V49",py:"Yishe",v:"T11",l:2,org:"Demeure du Yi",ind:"Pensée en boucle, obsession, surcharge mentale.",m:["stress"]},
+  {n:"V50",py:"Weicang",v:"T12",l:2,org:"—",ind:"Charnière dorso-lombaire, nouage abdominal.",m:["epuis"]},
+  {n:"V51",py:"Huangmen",v:"L1",l:2,org:"—",ind:"Lombaire haute, fatigue de fond.",m:["epuis"]},
+  {n:"V52",py:"Zhishi",v:"L2",l:2,org:"Demeure du Zhi",ind:"Volonté épuisée, burn-out, lombaire profonde.",m:["douleur","epuis"]}
+];
+
+var FILTERS = [
+  {k:"all",  lab:"TOUS"},
+  {k:"douleur", lab:"DOULEUR"},
+  {k:"deuil", lab:"DEUIL"},
+  {k:"stress", lab:"STRESS"},
+  {k:"epuis", lab:"ÉPUISEMENT"}
+];
+
+var active = "all", selected = null;
+
+/* ---------- Rendu SVG ---------- */
+function buildSVG(){
+  var s = "";
+  var order = ["T1","T2","T3","T4","T5","T6","T7","T8","T9","T10","T11","T12",
+               "L1","L2","L3","L4","L5","S1","S2","S3","S4"];
+
+  /* repères horizontaux */
+  var guides = [
+    {v:"T3", txt:"épine de l'omoplate"},
+    {v:"T7", txt:"pointe de l'omoplate"},
+    {v:"L4", txt:"crêtes iliaques"}
+  ];
+  for (var g=0; g<guides.length; g++){
+    var gy = LEVELS[guides[g].v];
+    s += '<line class="guide" x1="18" y1="'+gy+'" x2="322" y2="'+gy+'"/>';
+    s += '<text class="glab" x="18" y="'+(gy-4)+'">'+guides[g].txt+'</text>';
+  }
+
+  /* omoplates (indicatif) */
+  s += '<path d="M232 112 L296 122 L286 176 L242 206 Z" fill="none" stroke="#2a2a30" stroke-width="1"/>';
+  s += '<path d="M108 112 L44 122 L54 176 L98 206 Z" fill="none" stroke="#2a2a30" stroke-width="1"/>';
+
+  /* colonne */
+  for (var i=0;i<order.length;i++){
+    var y = LEVELS[order[i]];
+    var w = order[i][0]==="L" ? 15 : (order[i][0]==="S" ? 17 : 12);
+    s += '<rect class="vert" x="'+(MID-w/2)+'" y="'+(y-7)+'" width="'+w+'" height="14" rx="3"/>';
+    s += '<text class="vlab" x="'+(MID+13)+'" y="'+(y+3.5)+'">'+order[i]+'</text>';
+  }
+  s += '<text class="vlab" x="'+(MID-30)+'" y="62">C7</text>';
+  s += '<circle cx="'+MID+'" cy="58" r="5" fill="#33333c"/>';
+
+  /* points, symétriques */
+  for (var p=0;p<PTS.length;p++){
+    var d = PTS[p];
+    var y2 = LEVELS[d.v] + 8;
+    var off = d.l===1 ? OFF1 : OFF2;
+    var col = d.l===1 ? "#e8ff47" : "#a78bfa";
+    var dim = (active!=="all" && d.m.indexOf(active)===-1) ? " dim" : "";
+    var sel = (selected===d.n) ? " sel" : "";
+    var sides = [MID-off, MID+off];
+    for (var k=0;k<2;k++){
+      s += '<g class="pt'+dim+sel+'" data-n="'+d.n+'">'
+        +  '<circle cx="'+sides[k]+'" cy="'+y2+'" r="9.5" fill="'+col+'"/>'
+        +  '<text x="'+sides[k]+'" y="'+(y2+3)+'" text-anchor="middle">'+d.n.replace("V","")+'</text>'
+        +  '</g>';
+    }
+  }
+  document.getElementById("map").innerHTML = s;
+
+  var nodes = document.querySelectorAll(".pt");
+  for (var q=0;q<nodes.length;q++){
+    nodes[q].addEventListener("click", onPick);
+  }
+}
+
+function onPick(e){
+  var n = e.currentTarget.getAttribute("data-n");
+  selected = (selected===n) ? null : n;
+  buildSVG();
+  showDetail();
+}
+
+function showDetail(){
+  var box = document.getElementById("detail");
+  if (!selected){
+    box.innerHTML = '<div class="empty">Touche un point sur le schéma pour voir sa localisation et son indication.</div>';
+    return;
+  }
+  var d = null;
+  for (var i=0;i<PTS.length;i++){ if (PTS[i].n===selected) d = PTS[i]; }
+  var cun = d.l===1 ? "1,5 cun" : "3 cun";
+  var lab = {douleur:"Douleur", deuil:"Deuil", stress:"Stress", epuis:"Épuisement"};
+  var tags = "";
+  for (var t=0;t<d.m.length;t++){ tags += '<span class="tag">'+lab[d.m[t]]+'</span>'; }
+  box.innerHTML =
+     '<div class="num">'+d.n+'</div>'
+   + '<div class="py">'+d.py+(d.org!=="—" ? ' · '+d.org : '')+'</div>'
+   + '<div class="row"><b>Localisation</b> — sous l\'apophyse épineuse de <b>'+d.v+'</b>, à '+cun+' de la ligne médiane.</div>'
+   + '<div class="row" style="margin-top:5px">'+d.ind+'</div>'
+   + tags;
+}
+
+/* ---------- Filtres ---------- */
+function buildFilters(){
+  var h = "";
+  for (var i=0;i<FILTERS.length;i++){
+    h += '<button class="f'+(FILTERS[i].k===active?' on':'')+'" data-k="'+FILTERS[i].k+'">'+FILTERS[i].lab+'</button>';
+  }
+  document.getElementById("filters").innerHTML = h;
+  var b = document.querySelectorAll(".f");
+  for (var j=0;j<b.length;j++){
+    b[j].addEventListener("click", function(e){
+      active = e.currentTarget.getAttribute("data-k");
+      buildFilters(); buildSVG();
+    });
+  }
+}
+
+buildFilters();
+buildSVG();
+showDetail();
+</script>
+</body>
+</html>
