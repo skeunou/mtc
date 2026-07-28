@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tennis elbow — Protocole ventouses</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0d0f; --surf:#141416; --surf2:#1c1c20; --bdr:#2a2a30;
+  --acc:#e8ff47; --acc2:#ff6b35; --warn:#ff9500; --txt:#f0f0f0;
+  --mut:#6b6b78; --grn:#4ade80; --red:#f87171; --purp:#a78bfa; --blue:#38bdf8;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:'DM Sans',sans-serif;padding-bottom:40px}
+header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:2px solid var(--acc2);padding:10px 16px}
+.back{font-size:11px;color:var(--mut);text-decoration:none;letter-spacing:1px}
+h1{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:2px;margin:4px 0 0;line-height:1}
+.sub{font-size:11px;color:var(--mut);margin-top:3px;letter-spacing:.5px}
+.wrap{padding:14px 12px}
+
+.filters{display:flex;gap:6px;overflow-x:auto;padding:10px 12px 4px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.f{flex:0 0 auto;background:var(--surf2);border:1px solid var(--bdr);color:var(--mut);
+   font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:1px;padding:7px 13px;
+   border-radius:20px;cursor:pointer}
+.f.on{background:var(--acc2);color:#000;border-color:var(--acc2)}
+
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:10px;padding:12px;margin-bottom:12px}
+.card h2{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:1.5px;margin:0 0 8px;color:var(--acc)}
+.card.warn{border-left:3px solid var(--red)} .card.warn h2{color:var(--red)}
+.card.key{border-left:3px solid var(--grn)} .card.key h2{color:var(--grn)}
+
+svg{width:100%;height:auto;display:block;touch-action:manipulation}
+.limb{fill:#17171b;stroke:#2a2a30;stroke-width:1.2}
+.bone{stroke:#33333c;stroke-width:1.5;fill:none}
+.guide{stroke:#33333c;stroke-width:1;stroke-dasharray:3 4}
+.glab{font-family:'DM Sans',sans-serif;font-size:8.5px;fill:#55555f}
+.side{font-family:'DM Sans',sans-serif;font-size:9px;fill:#4a4a56;letter-spacing:1px}
+.zone{fill:#ff6b35;opacity:.10}
+.pt{cursor:pointer;transition:opacity .15s}
+.pt circle{stroke:#0d0d0f;stroke-width:1.5}
+.pt text{font-family:'DM Sans',sans-serif;font-size:8px;font-weight:700;fill:#0d0d0f;pointer-events:none}
+.pt.ant circle{stroke:#f0f0f0;stroke-width:1.5;stroke-dasharray:2.5 2.5}
+.dim{opacity:.13}
+.sel circle{stroke:#fff;stroke-width:2.5;stroke-dasharray:none}
+
+.legend{display:flex;gap:12px;font-size:11px;color:var(--mut);margin-top:8px;flex-wrap:wrap}
+.dotL{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+
+#detail{background:var(--surf2);border:1px solid var(--bdr);border-left:3px solid var(--acc2);
+        border-radius:8px;padding:12px;min-height:74px;margin-bottom:12px}
+#detail .num{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1px;color:var(--acc2);line-height:1}
+#detail .py{font-size:13px;font-weight:700;margin:2px 0 6px}
+#detail .row{font-size:12.5px;line-height:1.55;color:#d0d0d8}
+#detail .row b{color:var(--txt)}
+#detail .empty{font-size:12.5px;color:var(--mut)}
+
+ol.steps{margin:0;padding-left:0;list-style:none;counter-reset:s}
+ol.steps li{counter-increment:s;position:relative;padding:0 0 12px 34px;font-size:12.5px;line-height:1.55;color:#d0d0d8}
+ol.steps li:before{content:counter(s);position:absolute;left:0;top:0;width:23px;height:23px;border-radius:50%;
+  background:var(--surf2);border:1px solid var(--bdr);color:var(--acc);font-family:'Bebas Neue',sans-serif;
+  font-size:14px;display:flex;align-items:center;justify-content:center}
+ol.steps li b{color:var(--txt)}
+ol.steps li .dur{display:inline-block;font-size:10px;letter-spacing:.5px;color:var(--acc2);
+  border:1px solid var(--bdr);border-radius:10px;padding:1px 7px;margin-left:6px;vertical-align:1px}
+p.txt{font-size:12.5px;line-height:1.6;color:#d0d0d8;margin:0 0 8px}
+p.txt b{color:var(--txt)}
+ul.li{margin:0;padding-left:18px;font-size:12.5px;line-height:1.6;color:#d0d0d8}
+ul.li li{margin-bottom:4px}
+.mini{font-size:11.5px;color:var(--mut);line-height:1.55;margin-top:8px}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="back" href="./">← VENTOUSES</a>
+  <h1>TENNIS ELBOW</h1>
+  <div class="sub">Épicondylalgie latérale · protocole ventouses + tuina · cadre bien-être</div>
+</header>
+
+<div class="filters" id="filters"></div>
+
+<div class="wrap">
+
+  <div class="card">
+    <svg id="map" viewBox="0 0 340 570" xmlns="http://www.w3.org/2000/svg" aria-label="Schéma du coude et de l'avant-bras"></svg>
+    <div class="legend">
+      <span><i class="dotL" style="background:#ff6b35"></i>Local</span>
+      <span><i class="dotL" style="background:#f87171"></i>Ashi (zones clés)</span>
+      <span><i class="dotL" style="background:#e8ff47"></i>Distal</span>
+      <span><i class="dotL" style="background:#a78bfa;border:1.5px dashed #f0f0f0"></i>Face antérieure</span>
+    </div>
+  </div>
+
+  <div id="detail"><div class="empty">Touche un point pour voir sa localisation et son rôle dans le protocole.</div></div>
+
+  <div class="card">
+    <h2>Déroulé de séance — 30 min</h2>
+    <ol class="steps">
+      <li><b>Palpation et repérage</b><span class="dur">3 min</span><br>Coude fléchi 90°, avant-bras en pronation. Repère l'épicondyle latéral, puis descends 2 à 4 cm dans le corps musculaire : c'est là que se trouve le plus souvent le vrai point douloureux, pas sur l'os.</li>
+      <li><b>Tuina préparatoire</b><span class="dur">6 min</span><br>Tui fa (poussées longitudinales) puis Rou fa (pétrissage circulaire) sur toute la loge des extenseurs, du coude au poignet. Termine par An fa : pression tenue 30–45 s sur les deux Ashi, jusqu'au relâchement.</li>
+      <li><b>Ventouses glissées</b><span class="dur">5 min</span><br>Huile, ventouse 4 cm, aspiration <b>légère</b>. Va-et-vient longitudinal sur la loge des extenseurs. Jamais de glissée appuyée sur la pointe osseuse ni sur le tendon lui-même.</li>
+      <li><b>Ventouses fixes</b><span class="dur">8–10 min</span><br>3 à 4 ventouses : corps de l'ECRB (l'Ashi principal), GI10, GI11, et une sur la loge des fléchisseurs si elle est tendue. Aspiration modérée. <b>Aucune ventouse sur l'épicondyle osseux.</b></li>
+      <li><b>Points distaux en mobilisation</b><span class="dur">4 min</span><br>Pression tenue sur GI4 et TR5 pendant que la personne mobilise lentement le poignet en flexion-extension. La mobilisation active pendant la stimulation distale donne un meilleur relâchement qu'une pression statique.</li>
+      <li><b>Étirement</b><span class="dur">3 min</span><br>Coude tendu, poignet en flexion + pronation + inclinaison ulnaire. 3 × 30 s, à la limite de l'étirement, <b>jamais dans la douleur</b>.</li>
+    </ol>
+    <p class="mini">Fréquence : 1 séance par semaine, 4 à 6 séances. Minimum 5 jours entre deux passages de ventouses fixes sur la même zone.</p>
+  </div>
+
+  <div class="card key">
+    <h2>Le vrai levier : l'excentrique</h2>
+    <p class="txt">Sois honnête avec la personne : la séance prépare le tissu et soulage, mais ce qui fait guérir un tendon, c'est la charge progressive. C'est le protocole avec le meilleur niveau de preuve sur l'épicondylalgie.</p>
+    <ul class="li">
+      <li><b>Tyler Twist</b> (barre FlexBar ou serviette torsadée) — 3 × 15, une fois par jour, 6 semaines.</li>
+      <li><b>Sans matériel</b> — extension de poignet avec 1 kg, avant-bras posé, phase de descente contrôlée sur 3 secondes. 3 × 15.</li>
+      <li>Une gêne modérée pendant l'exercice est normale et attendue. Une douleur qui monte et persiste plus de 24 h = charge trop lourde.</li>
+    </ul>
+    <p class="mini">Formulation à garder : « la séance ouvre la porte, l'exercice quotidien fait le travail ».</p>
+  </div>
+
+  <div class="card warn">
+    <h2>Contre-indications et drapeaux rouges</h2>
+    <p class="txt"><b>Pas de ventouse locale si :</b></p>
+    <ul class="li">
+      <li>Anticoagulants ou trouble de la coagulation</li>
+      <li>Infiltration de corticoïdes de moins de 6 semaines</li>
+      <li>Peau lésée, eczéma, tatouage récent</li>
+      <li>Lymphœdème du membre supérieur ou curage axillaire homolatéral</li>
+      <li>Thrombose, phlébite, matériel d'ostéosynthèse superficiel</li>
+    </ul>
+    <p class="txt" style="margin-top:10px"><b>Orienter vers un médecin si :</b></p>
+    <ul class="li">
+      <li>Douleur nocturne spontanée</li>
+      <li>Fourmillements, perte de force de préhension marquée</li>
+      <li>Douleur irradiant depuis la nuque (penser névralgie cervico-brachiale C6-C7)</li>
+      <li>Apparition après un traumatisme direct</li>
+      <li>Aucune amélioration après 6 semaines</li>
+    </ul>
+    <p class="mini">Rappel de cadre : « épicondylite » est un diagnostic médical. En séance bien-être, tu décris une zone tendue et douloureuse, tu ne poses pas de diagnostic et tu ne parles pas de traitement.</p>
+  </div>
+
+</div>
+
+<script>
+/* ---------- Géométrie ---------- */
+var MID = 160;
+var Y_COUDE = 155, Y_POIGNET = 405;
+var CUN = (Y_POIGNET - Y_COUDE) / 12;   /* avant-bras = 12 cun */
+
+var PTS = [
+  {n:"GI12", py:"Zhouliao", g:"local", x:214, y:130, face:"post",
+   loc:"Coude fléchi, 1 cun au-dessus et en dehors de GI11, contre le bord latéral de l'humérus.",
+   role:"Point haut de la zone. Utile quand la douleur remonte vers le bras."},
+  {n:"GI11", py:"Quchi", g:"local", x:204, y:157, face:"post",
+   loc:"Coude fléchi à 90°, à l'extrémité externe du pli du coude, à mi-distance entre le pli et l'épicondyle latéral.",
+   role:"Point majeur du protocole. Bon emplacement de ventouse fixe, tissu épais et bien vascularisé."},
+  {n:"GI10", py:"Shousanli", g:"local", x:198, y:157+2*20.83, face:"post",
+   loc:"2 cun sous GI11, sur la ligne qui va de GI11 au pouce.",
+   role:"Deuxième ventouse fixe. Détend la masse des extenseurs sans agresser l'insertion."},
+  {n:"TR10", py:"Tianjing", g:"local", x:164, y:134, face:"post",
+   loc:"1 cun au-dessus de la pointe de l'olécrâne, coude fléchi.",
+   role:"Complément postérieur. À travailler en pression, pas en ventouse."},
+  {n:"Ashi", py:"Insertion épicondylienne", g:"ashi", x:216, y:166, face:"post",
+   loc:"Sur la pointe osseuse de l'épicondyle latéral, là où la douleur est la plus vive à la pression.",
+   role:"Point de repère, PAS un point de ventouse. Pression douce tenue uniquement. Aucune aspiration sur l'os."},
+  {n:"Ashi", py:"Corps de l'ECRB", g:"ashi", x:202, y:214, face:"post",
+   loc:"2 à 4 cm sous l'épicondyle, dans le ventre du court extenseur radial du carpe.",
+   role:"LE point le plus utile. C'est souvent ici que se trouve la vraie tension, pas sur l'insertion. Ventouse fixe prioritaire."},
+  {n:"TR5", py:"Waiguan", g:"distal", x:170, y:Y_POIGNET-2*20.83, face:"post",
+   loc:"2 cun au-dessus du pli dorsal du poignet, entre radius et ulna, face postérieure.",
+   role:"Point distal d'ouverture. Pression tenue pendant que la personne mobilise le poignet."},
+  {n:"GI5", py:"Yangxi", g:"distal", x:196, y:404, face:"post",
+   loc:"Au pli du poignet, dans le creux de la tabatière anatomique, pouce en extension.",
+   role:"Chaîne du méridien Gros Intestin, versant poignet. Utile si la gêne descend vers la main."},
+  {n:"GI4", py:"Hegu", g:"distal", x:206, y:448, face:"post",
+   loc:"Dos de la main, au sommet du relief musculaire entre 1er et 2e métacarpiens, pouce et index serrés.",
+   role:"Point distal antalgique classique. Pression ferme 1 min. Éviter chez la femme enceinte."},
+  {n:"IG3", py:"Houxi", g:"distal", x:118, y:446, face:"post",
+   loc:"Bord ulnaire de la main, dans le creux sous la tête du 5e métacarpien, poing fermé.",
+   role:"À ajouter si la tension remonte vers la nuque et l'épaule."},
+  {n:"P5", py:"Chize", g:"ant", x:176, y:152, face:"ant",
+   loc:"Face ANTÉRIEURE, au pli du coude, dans le creux au bord externe du tendon du biceps.",
+   role:"Détente des antagonistes. Un fléchisseur tendu entretient la surcharge des extenseurs."},
+  {n:"Ashi", py:"Loge des fléchisseurs", g:"ant", x:138, y:212, face:"ant",
+   loc:"Face ANTÉRIEURE, tiers proximal de l'avant-bras, dans la masse des fléchisseurs.",
+   role:"À traiter en tuina ou en ventouse légère si la loge antérieure est dure. Souvent négligé."}
+];
+
+var GCOL = {local:"#ff6b35", ashi:"#f87171", distal:"#e8ff47", ant:"#a78bfa"};
+
+var FILTERS = [
+  {k:"all", lab:"TOUS"},
+  {k:"local", lab:"LOCAL"},
+  {k:"ashi", lab:"ASHI"},
+  {k:"distal", lab:"DISTAL"},
+  {k:"ant", lab:"ANTÉRIEUR"}
+];
+
+var active = "all", selected = -1;
+
+/* ---------- Rendu SVG ---------- */
+function buildSVG(){
+  var s = "";
+
+  /* bras et avant-bras */
+  s += '<path class="limb" d="M112 26 L208 26 L216 150 L212 176 L200 260 L192 340 L188 404 '
+     + 'L206 412 L214 452 L206 496 L124 494 L120 440 L128 406 L130 340 L126 260 L114 176 L110 150 Z"/>';
+
+  /* pouce */
+  s += '<path class="limb" d="M206 412 L226 424 L228 452 L212 456 Z"/>';
+
+  /* humérus / olécrâne */
+  s += '<line class="bone" x1="160" y1="34" x2="160" y2="140"/>';
+  s += '<path class="bone" d="M146 140 Q160 128 174 140 L172 172 Q160 180 148 172 Z"/>';
+  s += '<text class="glab" x="60" y="176">olécrâne</text>';
+  s += '<line class="guide" x1="98" y1="168" x2="146" y2="168"/>';
+
+  /* épicondyles */
+  s += '<circle cx="214" cy="150" r="7" fill="none" stroke="#4a4a56" stroke-width="1.4"/>';
+  s += '<text class="glab" x="224" y="146">épicondyle</text>';
+  s += '<text class="glab" x="224" y="156">latéral</text>';
+  s += '<circle cx="108" cy="150" r="6" fill="none" stroke="#33333c" stroke-width="1.2"/>';
+  s += '<text class="glab" x="34" y="146">épicondyle</text>';
+  s += '<text class="glab" x="46" y="156">médial</text>';
+
+  /* plis */
+  s += '<line class="guide" x1="98" y1="'+Y_COUDE+'" x2="228" y2="'+Y_COUDE+'"/>';
+  s += '<text class="glab" x="18" y="'+(Y_COUDE-4)+'">pli du coude · 0 cun</text>';
+  s += '<line class="guide" x1="106" y1="'+Y_POIGNET+'" x2="234" y2="'+Y_POIGNET+'"/>';
+  s += '<text class="glab" x="18" y="'+(Y_POIGNET-4)+'">pli du poignet · 12 cun</text>';
+
+  /* zone de glissée ventouses */
+  s += '<path class="zone" d="M198 172 L212 176 L200 262 L186 258 Z"/>';
+  s += '<text class="glab" x="238" y="216">loge des</text>';
+  s += '<text class="glab" x="238" y="226">extenseurs</text>';
+  s += '<text class="glab" x="238" y="236">zone de glissée</text>';
+
+  /* côtés */
+  s += '<text class="side" x="250" y="330">RADIAL ▸</text>';
+  s += '<text class="side" x="22" y="330">◂ ULNAIRE</text>';
+  s += '<text class="side" x="22" y="50">Avant-bras · vue postérieure</text>';
+
+  /* points */
+  for (var p=0;p<PTS.length;p++){
+    var d = PTS[p];
+    var dim = (active!=="all" && d.g!==active) ? " dim" : "";
+    var sel = (selected===p) ? " sel" : "";
+    var ant = (d.face==="ant") ? " ant" : "";
+    var lab = (d.g==="ashi" || d.n==="Ashi") ? "Ashi" : d.n;
+    s += '<g class="pt'+ant+dim+sel+'" data-i="'+p+'">'
+      +  '<circle cx="'+d.x+'" cy="'+d.y+'" r="12" fill="'+GCOL[d.g]+'"/>'
+      +  '<text x="'+d.x+'" y="'+(d.y+3)+'" text-anchor="middle">'+lab+'</text>'
+      +  '</g>';
+  }
+
+  document.getElementById("map").innerHTML = s;
+  var nodes = document.querySelectorAll(".pt");
+  for (var q=0;q<nodes.length;q++){ nodes[q].addEventListener("click", onPick); }
+}
+
+function onPick(e){
+  var i = parseInt(e.currentTarget.getAttribute("data-i"),10);
+  selected = (selected===i) ? -1 : i;
+  buildSVG(); showDetail();
+}
+
+function showDetail(){
+  var box = document.getElementById("detail");
+  if (selected < 0){
+    box.innerHTML = '<div class="empty">Touche un point pour voir sa localisation et son rôle dans le protocole.</div>';
+    return;
+  }
+  var d = PTS[selected];
+  box.innerHTML =
+     '<div class="num">'+d.n+'</div>'
+   + '<div class="py">'+d.py+'</div>'
+   + '<div class="row"><b>Localisation</b> — '+d.loc+'</div>'
+   + '<div class="row" style="margin-top:5px"><b>Rôle</b> — '+d.role+'</div>';
+}
+
+function buildFilters(){
+  var h = "";
+  for (var i=0;i<FILTERS.length;i++){
+    h += '<button class="f'+(FILTERS[i].k===active?' on':'')+'" data-k="'+FILTERS[i].k+'">'+FILTERS[i].lab+'</button>';
+  }
+  document.getElementById("filters").innerHTML = h;
+  var b = document.querySelectorAll(".f");
+  for (var j=0;j<b.length;j++){
+    b[j].addEventListener("click", function(e){
+      active = e.currentTarget.getAttribute("data-k");
+      buildFilters(); buildSVG();
+    });
+  }
+}
+
+buildFilters();
+buildSVG();
+showDetail();
+</script>
+</body>
+</html>
