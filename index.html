@@ -37,7 +37,8 @@ footer{margin-top:60px;font-size:11px;color:var(--mut);letter-spacing:1px;text-a
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @media (max-width:600px){body{padding:24px 16px 40px}header{margin-bottom:36px}h1{font-size:38px;letter-spacing:2px}.tool-card{padding:20px}}
-</style></head><body>
+</style><script src="/lvnav.js"></script>
+</head><body>
 
 <a class="back" href="https://skeunou.github.io/">← LV TOOL</a>
 
@@ -76,4 +77,7 @@ footer{margin-top:60px;font-size:11px;color:var(--mut);letter-spacing:1px;text-a
 
 <footer>Construit sur mesure · Données locales · Aucune pub</footer>
 
+<script>
+if(window.LVNAV){ LVNAV.init({ app:"mtc-hub", snapshot:function(){return{};}, restore:function(){} }); }
+</script>
 </body></html>
