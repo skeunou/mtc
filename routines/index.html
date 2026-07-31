@@ -139,7 +139,8 @@ footer{text-align:center;font-size:11px;color:var(--mut);letter-spacing:1px;padd
 .pl-done h3{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:1px}
 .pl-done p{font-size:13px;color:var(--mut);line-height:1.55;max-width:340px}
 .pl-cta{background:var(--acc);color:#0d0d0f;border:none;border-radius:10px;padding:13px 26px;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;cursor:pointer;margin-top:8px}
-</style></head><body>
+</style><script src="/lvnav.js"></script>
+</head><body>
 
 <header>
   <a class="hbtn" href="https://skeunou.github.io/mtc/">← MTC</a>
@@ -391,7 +392,7 @@ function renderList(){
 
 /* ---------- DETAIL ---------- */
 function openFiche(id){
-  CUR=id;
+  CUR=id; if(!lvRestoring&&window.LVNAV)LVNAV.push();
   const f = FICHES.find(x=>x.id===id);
   const seq = f.sequence.map(st=>`
     <div class="step">
@@ -539,5 +540,15 @@ function releaseWake(){ try{ PL.wake&&PL.wake.release(); }catch(e){} PL.wake=nul
 document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible' && $('player').classList.contains('on')) requestWake(); });
 
 renderList();
+</script>
+<script>
+/* ============ LV : memoire de navigation ============ */
+var lvRestoring=false;
+if(window.LVNAV){
+  LVNAV.init({ app:"mtc-routines", sections:'details, .sec', overlays:'#lb',
+    snapshot:function(){ return {f:(typeof CUR!=='undefined')?CUR:null}; },
+    restore:function(s){ lvRestoring=true; try{ if(s&&s.f)openFiche(s.f); }catch(e){} lvRestoring=false; }
+  });
+}
 </script>
 </body></html>
