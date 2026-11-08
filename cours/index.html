@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MTC — Mes cours</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0d0f;--surf:#141416;--surf2:#1c1c20;--bdr:#2a2a30;--acc:#e8ff47;--acc2:#ff6b35;--txt:#f0f0f0;--mut:#6b6b78;--grn:#4ade80;--purp:#a78bfa;--blue:#38bdf8}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--txt);font-family:'DM Sans',sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased}
+body{display:flex;flex-direction:column;align-items:center;padding:30px 20px 60px;background:radial-gradient(circle at 30% 0%,rgba(56,189,248,.07),transparent 50%),var(--bg)}
+.back{align-self:flex-start;font-size:12px;color:var(--mut);text-decoration:none;letter-spacing:1px;margin-bottom:30px;padding:6px 10px;border-radius:6px;border:1px solid transparent;transition:.2s}
+.back:hover{color:var(--blue);border-color:var(--bdr)}
+header{text-align:center;margin:20px 0 40px}
+.hello{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--mut);margin-bottom:8px}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,7vw,64px);letter-spacing:4px;line-height:1}
+h1 span{color:var(--blue)}
+.subtitle{font-size:14px;color:var(--mut);margin-top:14px;max-width:520px;line-height:1.5}
+.list{display:grid;gap:14px;max-width:760px;width:100%}
+.c{display:flex;gap:16px;align-items:center;background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--blue);border-radius:12px;padding:18px;text-decoration:none;color:inherit;transition:.22s}
+.c:hover{transform:translateY(-2px);border-color:var(--blue);box-shadow:0 10px 26px rgba(0,0,0,.3)}
+.date{font-family:'Bebas Neue',sans-serif;text-align:center;min-width:56px;line-height:1}
+.date b{display:block;font-size:30px;color:var(--blue)}
+.date small{font-size:13px;letter-spacing:1px;color:var(--mut)}
+.info{flex:1}
+.t{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1.5px;line-height:1.1}
+.d{font-size:13px;color:var(--mut);margin-top:4px;line-height:1.45}
+.arw{color:var(--blue);font-size:18px}
+footer{margin-top:60px;font-size:11px;color:var(--mut);letter-spacing:1px}
+</style><script src="/lvnav.js"></script>
+</head><body>
+<a class="back" href="../">← MTC</a>
+<header>
+  <div class="hello">Formation MTC · Tuina</div>
+  <h1>MES <span>COURS</span></h1>
+  <div class="subtitle">Mes notes de cours remises au propre, imprimables.</div>
+</header>
+<main class="list">
+  <a class="c" href="2026-11-ventouses.html">
+    <div class="date"><b>11</b><small>2026</small></div>
+    <div class="info">
+      <div class="t">Ventouses · Lombalgie · Genou</div>
+      <div class="d">Week-end novembre — pose et ventouses glissées, protocole lombalgie (23V), protocole genou.</div>
+    </div>
+    <div class="arw">→</div>
+  </a>
+</main>
+<footer>Construit sur mesure · Données locales · Aucune pub</footer>
+<script>if(window.LVNAV){ LVNAV.init({ app:"mtc-cours", snapshot:function(){return{};}, restore:function(){} }); }</script>
+</body></html>

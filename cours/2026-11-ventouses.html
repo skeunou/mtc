@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MTC — Week-end novembre 2026 · Ventouses, lombalgie, genou</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0d0f;--surf:#141416;--surf2:#1c1c20;--bdr:#2a2a30;--acc:#e8ff47;--acc2:#ff6b35;--warn:#ff9500;--txt:#f0f0f0;--mut:#8a8a96;--grn:#4ade80;--red:#f87171;--purp:#a78bfa;--blue:#38bdf8}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--txt);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
+body{background:radial-gradient(circle at 30% 0%,rgba(56,189,248,.06),transparent 50%),var(--bg);min-height:100vh}
+
+header.bar{position:sticky;top:0;z-index:20;background:rgba(13,13,15,.92);backdrop-filter:blur(8px);border-bottom:2px solid var(--blue);padding:12px 16px;display:flex;align-items:center;gap:12px}
+.hbtn{background:none;border:1px solid var(--bdr);color:var(--mut);font:inherit;font-size:12px;letter-spacing:1px;padding:6px 10px;border-radius:8px;cursor:pointer;text-decoration:none;white-space:nowrap;transition:.2s}
+.hbtn:hover{color:var(--blue);border-color:var(--blue)}
+.htitle{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;line-height:1;flex:1}
+.htitle span{color:var(--blue)}
+
+.wrap{max-width:820px;margin:0 auto;padding:24px 16px 80px}
+
+.cover{margin:10px 0 28px}
+.kicker{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--mut)}
+.cover h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,7vw,56px);letter-spacing:2px;line-height:1;margin:8px 0 10px}
+.cover h1 span{color:var(--blue)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.tag{font-size:11px;letter-spacing:1px;padding:4px 10px;border:1px solid var(--bdr);border-radius:12px;color:var(--mut)}
+
+.toc{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:16px 18px;margin-bottom:28px}
+.toc ol{margin-left:20px;font-size:14px;line-height:1.9}
+.toc a{color:var(--txt);text-decoration:none}
+.toc a:hover{color:var(--blue)}
+
+section{margin-bottom:36px}
+.part{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+.part.theo{color:var(--purp)}
+.part.prat{color:var(--acc2)}
+.part.rev{color:var(--grn)}
+h2{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:1.5px;line-height:1.05;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--bdr)}
+h3{font-size:15px;font-weight:700;margin:20px 0 8px;color:var(--txt)}
+p{font-size:14.5px;line-height:1.65;margin-bottom:10px;color:#d6d6dc}
+ul,ol{margin:0 0 12px 20px;font-size:14.5px;line-height:1.65;color:#d6d6dc}
+li{margin-bottom:3px}
+strong{color:var(--txt)}
+em{color:var(--mut)}
+
+.lead{font-size:15.5px;color:var(--txt)}
+
+table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:13.5px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--bdr);vertical-align:top;line-height:1.45}
+th{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--mut);font-weight:600;background:var(--surf2)}
+td.pt{font-weight:700;color:var(--blue);white-space:nowrap}
+td.zh{color:var(--mut);font-style:italic}
+
+.box{border-radius:10px;padding:12px 14px;margin:14px 0;font-size:14px;line-height:1.55;border:1px solid var(--bdr);border-left:4px solid var(--c)}
+.box b.t{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--c);margin-bottom:4px}
+.box ul{margin-bottom:0}
+.box.retenir{--c:var(--acc);background:rgba(232,255,71,.05)}
+.box.verif{--c:var(--warn);background:rgba(255,149,0,.06)}
+.box.compl{--c:var(--purp);background:rgba(167,139,250,.06)}
+
+.steps{counter-reset:s;list-style:none;margin-left:0}
+.steps li{counter-increment:s;position:relative;padding-left:36px;margin-bottom:8px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:1px;width:24px;height:24px;border-radius:50%;background:var(--acc2);color:#000;font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center}
+
+figure{margin:14px 0;background:var(--surf);border:1px solid var(--bdr);border-radius:12px;overflow:hidden}
+figure img{display:block;width:100%;height:auto}
+figcaption{font-size:12.5px;color:var(--mut);padding:8px 12px;line-height:1.45}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.grid2 figure,.grid3 figure{margin:0}
+.grid3 img{aspect-ratio:3/4;object-fit:cover}
+.grid3.boards img{object-fit:contain;background:#fff}
+
+.todo{list-style:none;margin-left:0}
+.todo li{position:relative;padding-left:28px}
+.todo li::before{content:"";position:absolute;left:0;top:4px;width:15px;height:15px;border:2px solid var(--grn);border-radius:4px}
+
+.qa li{margin-bottom:6px}
+details.ans{margin-top:10px;background:var(--surf);border:1px solid var(--bdr);border-radius:10px;padding:10px 14px}
+details.ans summary{cursor:pointer;font-weight:700;font-size:14px;color:var(--grn)}
+details.ans ol{margin-top:10px}
+
+footer{text-align:center;font-size:11px;color:var(--mut);letter-spacing:1px;margin-top:40px}
+
+@media (max-width:600px){.grid3{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}h2{font-size:26px}td,th{padding:7px 6px}}
+
+/* ============ IMPRESSION ============ */
+@media print{
+  @page{size:A4;margin:14mm 14mm 16mm}
+  :root{--txt:#111;--mut:#555;--bdr:#bbb;--surf:#fff;--surf2:#eee}
+  html,body{background:#fff!important;color:#111}
+  header.bar,.noprint,.toc{display:none!important}
+  .wrap{max-width:none;padding:0}
+  p,ul,ol,li{color:#111;font-size:10pt;line-height:1.45}
+  th,td{padding:5px 8px;font-size:9.5pt}
+  h3{margin:12px 0 5px}
+  section{margin-bottom:18px}
+  .cover{margin-top:0;border-bottom:3px solid #111;padding-bottom:10px}
+  .cover h1 span,td.pt,.part{color:#111!important}
+  h2{font-size:22pt;break-after:avoid}
+  h3{break-after:avoid}
+  section.newpage{break-before:page}
+  .box{background:#fff!important;border:1px solid #888;border-left:4px solid #111;border-radius:0;break-inside:avoid;margin:8px 0;padding:8px 12px;font-size:10pt}
+  .box b.t{color:#111}
+  table,figure,.grid2,.grid3{break-inside:avoid}
+  th{background:#eee!important;color:#111}
+  figure{border-color:#999}
+  figure{margin:8px 0;border-radius:0}
+  figure img{max-height:80mm;width:auto;max-width:100%;margin:0 auto;object-fit:contain}
+  .grid2 img{max-height:70mm}
+  .grid3 img{height:62mm;max-height:62mm;width:100%;object-fit:cover}
+  .grid3.boards img{object-fit:contain}
+  figcaption{font-size:8.5pt;padding:4px 8px}
+  .steps li::before{background:#fff;color:#111;border:1.5px solid #111}
+  .todo li::before{border-color:#111}
+  details.ans{border:none;padding:0}
+  details.ans summary{color:#111;list-style:none}
+  details.ans[open] summary~*, details.ans summary~*{display:block}
+  .tag{border-color:#999;color:#333}
+  a{color:#111;text-decoration:none}
+}
+</style>
+<script src="/lvnav.js"></script>
+</head>
+<body>
+
+<header class="bar">
+  <a class="hbtn" href="./">← Cours</a>
+  <div class="htitle">MTC <span>· Mes cours</span></div>
+  <button class="hbtn" onclick="printCours()">🖨 Imprimer</button>
+</header>
+
+<main class="wrap">
+
+<div class="cover">
+  <div class="kicker">Séance · Week-end novembre 2026 · Formation Tuina</div>
+  <h1>Ventouses <span>· Lombalgie · Genou</span></h1>
+  <div class="tags"><span class="tag">Théorie</span><span class="tag">Pratique</span><span class="tag">Devoirs</span></div>
+  <p style="margin-top:12px;font-size:12.5px;color:var(--mut)"><em>Noms chinois des points en gris = complément ajouté (non noté au tableau).</em></p>
+</div>
+
+<nav class="toc">
+  <ol>
+    <li><a href="#objectifs">Objectifs</a></li>
+    <li><a href="#theorie">Théorie — Les ventouses</a></li>
+    <li><a href="#pose">Pratique — Pose et ventouses glissées</a></li>
+    <li><a href="#lombalgie">Pratique — Protocole lombalgie</a></li>
+    <li><a href="#genou">Pratique — Protocole genou</a></li>
+    <li><a href="#devoirs">Devoirs et ressources</a></li>
+    <li><a href="#revision">Glossaire et révision</a></li>
+  </ol>
+</nav>
+
+<section id="objectifs">
+  <h2>Objectifs de la séance</h2>
+  <p class="lead">Pose de ventouses (statiques et glissées) et deux protocoles à refaire à la maison : lombalgie et genou.</p>
+  <ul>
+    <li>Savoir quand poser des ventouses et quand s'abstenir</li>
+    <li>Poser une ventouse en sécurité avec la pince et la flamme</li>
+    <li>Enchaîner Tuina puis ventouses dans une même séance</li>
+    <li>Repérer les points des protocoles lombalgie et genou</li>
+  </ul>
+</section>
+
+<section id="theorie">
+  <div class="part theo">Théorie</div>
+  <h2>Les ventouses</h2>
+  <p class="lead">Les ventouses sont un outil <strong>dispersant</strong> : elles font circuler le Qi et le Sang, chassent le Xie Qi (énergie perverse) et calment la douleur.</p>
+
+  <h3>Indications</h3>
+  <p>Action plutôt <strong>externe</strong> qu'interne. Idéal pour :</p>
+  <ul>
+    <li>une invasion externe d'origine climatique — ex. Vent-Froid en début de rhume ou de grippe</li>
+    <li>les troubles tendino-musculaires</li>
+    <li>le Poumon, dans une certaine mesure</li>
+    <li>un trouble de l'épaule de type plénitude (excès) : climat ou stagnation <em>(cf. l'histoire du taximan)</em></li>
+  </ul>
+  <p>Plus il y a de stagnation, plus la trace est violette et plus elle reste longtemps.</p>
+
+  <h3>Contre-indications</h3>
+  <table>
+    <tr><th>Ne pas poser</th><th>Exemples</th></tr>
+    <tr><td>Personne en <strong>vide</strong></td><td>Insuffisance</td></tr>
+    <tr><td>Traitement fluidifiant</td><td>Anticoagulants, antiagrégants</td></tr>
+    <tr><td>Zone abîmée</td><td>Fracture, déchirure</td></tr>
+    <tr><td>Hernie</td><td>Pas de pose forte</td></tr>
+  </table>
+
+  <div class="box retenir"><b class="t">À retenir</b>Ventouse = dispersion. On l'utilise sur la plénitude et la stagnation, jamais sur le vide.</div>
+</section>
+
+<section id="pose" class="newpage">
+  <div class="part prat">Pratique</div>
+  <h2>Pose et ventouses glissées</h2>
+
+  <h3>Préparer la flamme</h3>
+  <ul>
+    <li>Bien presser le surplus d'alcool sur les bords de la petite bouteille</li>
+    <li>Prendre la pince <strong>sans mettre les doigts dans les trous</strong> — pas comme des ciseaux</li>
+    <li>Tenir la pince à l'horizontale, sans laisser la flamme lécher le bord de la ventouse</li>
+    <li>Pas de grands mouvements avec la flamme</li>
+  </ul>
+
+  <h3>Enchaîner Tuina et ventouses</h3>
+  <p>Si une zone reçoit Tuina <strong>et</strong> ventouses : ventouses toujours <strong>après</strong> le massage.</p>
+  <ol class="steps">
+    <li>Tuina dos, épaules, nuque</li>
+    <li>Ventouses glissées ou statiques sur cette zone</li>
+    <li>Retourner la personne : massage tête, bras, ventre</li>
+  </ol>
+
+  <h3>Ventouses glissées</h3>
+  <ul>
+    <li>Drap d'examen pour protéger pantalon et culotte</li>
+    <li>Mettre l'huile sans trop masser — sinon la peau absorbe tout</li>
+    <li>Tenir la peau au besoin avant de tirer la ventouse</li>
+    <li>Passer droite ↔ gauche, de préférence par le bas des lombes</li>
+    <li>Tracés : des <strong>« W »</strong> en bas des lombes, des <strong>« L »</strong> sur les trapèzes</li>
+    <li>Pomper le surplus d'huile avec le drap ou du Sopalin, sans frotter</li>
+  </ul>
+
+  <h3>Avant et après la pose</h3>
+  <ul>
+    <li>Demander si l'intensité convient</li>
+    <li>Prévenir qu'une trace rosée ou violacée peut rester quelques jours, et vérifier l'accord</li>
+    <li>Fenêtres fermées pendant la pose : pas de vent sur les ventouses, ni sur la flamme</li>
+    <li>Après : bien se couvrir, <strong>pas de bain ni de piscine dans les 2 heures</strong></li>
+  </ul>
+
+  <div class="box retenir"><b class="t">À retenir</b>Tuina d'abord, ventouses ensuite. Pas de vent pendant la pose, pas d'eau dans les 2 h après.</div>
+  <div class="box verif"><b class="t">À voir avec la prof</b>Les cloques qui peuvent survenir : pourquoi, et la conduite à tenir.</div>
+</section>
+
+<section id="lombalgie" class="newpage">
+  <div class="part prat">Pratique</div>
+  <h2>Protocole lombalgie</h2>
+  <p class="lead">Point clé : <strong>23V, point Shu du Rein</strong>, sur la 1<sup>re</sup> chaîne Vessie. Le protocole associe le bas du dos et des points le long de la jambe.</p>
+
+  <div class="grid3 boards">
+    <figure><img src="img/lombalgie-23v.webp" alt="Schéma du dos : 23V sur la 1re chaîne Vessie"><figcaption>23V de part et d'autre de la colonne. ① 1<sup>re</sup> chaîne, ② 2<sup>e</sup> chaîne Vessie.</figcaption></figure>
+    <figure><img src="img/lombalgie-chaines.webp" alt="Ming Men, 23V et 52V au niveau de L2"><figcaption>Ming Men (ligne médiane), 23V (1<sup>re</sup> chaîne) et 52V (2<sup>e</sup> chaîne), même hauteur.</figcaption></figure>
+    <figure><img src="img/lombalgie-jambe.webp" alt="Face postérieure de la jambe : 37V, 40V, 57V, 60V, 3RN"><figcaption>Face postérieure de la jambe. Distances en cun : 6 · 8 · 8 · 8.</figcaption></figure>
+  </div>
+
+  <h3>Points du dos — au niveau de L2</h3>
+  <table>
+    <tr><th>Point</th><th>Nom</th><th>Repère</th></tr>
+    <tr><td class="pt">Ming Men</td><td class="zh">4VG</td><td>Ligne médiane, sous L2</td></tr>
+    <tr><td class="pt">23V</td><td class="zh">Shenshu</td><td>1<sup>re</sup> chaîne Vessie — <strong>point Shu du Rein</strong></td></tr>
+    <tr><td class="pt">52V</td><td class="zh">Zhishi</td><td>2<sup>e</sup> chaîne Vessie</td></tr>
+  </table>
+
+
+  <h3>Points de la jambe</h3>
+  <table>
+    <tr><th>Point</th><th>Nom</th><th>Repère</th></tr>
+    <tr><td class="pt">37V</td><td class="zh">Yinmen</td><td>6 cun sous le pli fessier, milieu de la cuisse</td></tr>
+    <tr><td class="pt">40V</td><td class="zh">Weizhong</td><td>8 cun sous 37V, milieu du creux poplité — <strong>désobstrue le méridien Vessie</strong></td></tr>
+    <tr><td class="pt">57V</td><td class="zh">Chengshan</td><td>8 cun sous 40V, dans le « V » des jumeaux</td></tr>
+    <tr><td class="pt">60V</td><td class="zh">Kunlun</td><td>Cheville, côté externe</td></tr>
+    <tr><td class="pt">3RN</td><td class="zh">Taixi</td><td>Cheville, côté interne</td></tr>
+  </table>
+
+  <div class="box verif"><b class="t">À vérifier avec la prof</b>L'ordre des points et la technique pour chacun (pression, ventouse, durée).</div>
+  <div class="box retenir"><b class="t">À retenir</b>23V = Shu du Rein · 40V = désobstrue la Vessie · jambe : 6 – 8 – 8 – 8 cun.</div>
+</section>
+
+<section id="genou" class="newpage">
+  <div class="part prat">Pratique</div>
+  <h2>Protocole genou</h2>
+  <p class="lead">Six points autour de la rotule et sous le genou, tracés au feutre en cours, genou fléchi sur un coussin.</p>
+
+  <div class="grid3">
+    <figure><img src="img/genou-profil.webp" alt="Genou de profil : 34E, 35E, 36E, 34VB"><figcaption>Profil externe : 34E, 35E, 36E, 34VB</figcaption></figure>
+    <figure><img src="img/genou-face-1.webp" alt="Genou de face : 35E, Xiyan, 10Rte"><figcaption>Face : 35E, Xiyan, 10Rte</figcaption></figure>
+    <figure><img src="img/genou-face-2.webp" alt="Genou de face, autre angle"><figcaption>Face, autre angle</figcaption></figure>
+  </div>
+
+  <table>
+    <tr><th>Point</th><th>Nom</th><th>Localisation</th></tr>
+    <tr><td class="pt">34E</td><td class="zh">Liangqiu</td><td>Au-dessus de la rotule, côté externe</td></tr>
+    <tr><td class="pt">10Rte</td><td class="zh">Xuehai</td><td>Au-dessus de la rotule, côté interne</td></tr>
+    <tr><td class="pt">35E</td><td class="zh">Dubi</td><td>« Œil » externe du genou, creux sous la rotule</td></tr>
+    <tr><td class="pt">Xiyan</td><td class="zh">Neixiyan · hors méridien</td><td>« Œil » interne du genou, creux sous la rotule</td></tr>
+    <tr><td class="pt">36E</td><td class="zh">Zusanli</td><td>Sous le genou, trajet Estomac, côté externe du tibia</td></tr>
+    <tr><td class="pt">34VB</td><td class="zh">Yanglingquan</td><td>Sous le genou, côté externe, devant la tête du péroné</td></tr>
+  </table>
+  <p><em>Référence : planche Deadman « Points de la face antérieure de la jambe » (36E, 35E, Xiyan, 34VB).</em></p>
+
+  <div class="box verif"><b class="t">À vérifier avec la prof</b>
+    <ul>
+      <li>Points violets vs verts : deux étapes ou deux techniques ?</li>
+      <li>Marques vertes au-dessus de la rotule et entre les deux « yeux » : quels gestes ?</li>
+      <li>Ordre des points et technique pour chacun</li>
+    </ul>
+  </div>
+  <div class="box retenir"><b class="t">À retenir</b>Yeux du genou : 35E dehors, Xiyan dedans · Au-dessus : 34E dehors, 10Rte dedans · Dessous : 36E et 34VB.</div>
+</section>
+
+<section id="devoirs" class="newpage">
+  <div class="part rev">Après le cours</div>
+  <h2>Devoirs et ressources</h2>
+
+  <h3>Devoirs</h3>
+  <ul class="todo">
+    <li>Refaire au moins <strong>3 fois</strong> le protocole lombalgie</li>
+    <li>Refaire au moins <strong>3 fois</strong> le protocole genou</li>
+    <li>Vide : qu'est-ce qui peut être en vide ? Quel principe de traitement ?</li>
+    <li>Plénitude : qu'est-ce qui peut être en plénitude ? Quel principe de traitement ?</li>
+  </ul>
+
+  <h3>S'entraîner aux ventouses</h3>
+  <ul class="todo">
+    <li>Sur soi, face externe de la cuisse : poser, décoller, recommencer — sans laisser en place ni glisser</li>
+    <li>Trois intensités d'accroche : douce, moyenne, forte</li>
+  </ul>
+
+  <h3>Pour aller plus loin</h3>
+  <ul>
+    <li>Maciocia, <em>Les principes fondamentaux de la médecine chinoise</em> — télécharger le PDF et l'ouvrir</li>
+    <li>Daniel Henri, <em>La médecine des ventouses</em> — référence sur les ventouses</li>
+    <li>Feuilleter un livre d'acupuncture pour les trajets des méridiens</li>
+  </ul>
+
+  <h3>Matériel</h3>
+  <ul>
+    <li>Ventouses : partenariat <a href="https://www.jingweishop.com/" style="color:var(--blue)">Jing Wei Shop</a> — sondage commande groupée sur le salon général</li>
+    <li>Tables de massage : Massage Factory ou Leboncoin</li>
+    <li>Logiciel 3D du cours, vidéos et PDF : voir le salon général</li>
+  </ul>
+</section>
+
+<section id="revision" class="newpage">
+  <div class="part rev">Révision</div>
+  <h2>Glossaire</h2>
+  <table>
+    <tr><th>Terme</th><th>Sens</th></tr>
+    <tr><td class="pt">Xie Qi</td><td>Énergie perverse : facteur pathogène, souvent climatique (Vent, Froid…)</td></tr>
+    <tr><td class="pt">Vide</td><td>Insuffisance, manque d'énergie ou de substance</td></tr>
+    <tr><td class="pt">Plénitude</td><td>Excès : facteur pathogène présent ou stagnation</td></tr>
+    <tr><td class="pt">Point Shu</td><td>Point du dos lié à un organe (23V = Shu du Rein)</td></tr>
+    <tr><td class="pt">Cun</td><td>Unité de mesure proportionnelle au corps de la personne</td></tr>
+    <tr><td class="pt">1<sup>re</sup> / 2<sup>e</sup> chaîne</td><td>Les deux lignes du méridien Vessie de chaque côté de la colonne</td></tr>
+    <tr><td class="pt">Ming Men</td><td>« Porte de la Vie », point de la ligne médiane du dos</td></tr>
+  </table>
+
+  <h2 style="margin-top:26px">Questions de révision</h2>
+  <ol class="qa">
+    <li>Pourquoi dit-on que les ventouses sont dispersantes ?</li>
+    <li>Cite deux situations où les ventouses sont indiquées.</li>
+    <li>Cite trois contre-indications.</li>
+    <li>Que signifie une trace très violette qui dure ?</li>
+    <li>Séance Tuina + ventouses sur le dos : dans quel ordre ?</li>
+    <li>Quelles consignes donner après la pose ?</li>
+    <li>Où se trouve 23V et quel est son rôle ?</li>
+    <li>Quel point désobstrue le méridien Vessie ?</li>
+    <li>Quels sont les deux « yeux » du genou ?</li>
+  </ol>
+  <details class="ans">
+    <summary>Réponses</summary>
+    <ol>
+      <li>Elles font circuler le Qi et le Sang et chassent le Xie Qi.</li>
+      <li>Invasion externe climatique (Vent-Froid) ; trouble tendino-musculaire ; épaule en plénitude.</li>
+      <li>Vide ; fluidifiants ; zone abîmée (fracture, déchirure) ; pas de pose forte sur hernie.</li>
+      <li>Beaucoup de stagnation.</li>
+      <li>Tuina d'abord, ventouses ensuite, puis on retourne la personne.</li>
+      <li>Se couvrir, pas de bain ni de piscine dans les 2 h.</li>
+      <li>1<sup>re</sup> chaîne Vessie, niveau L2 : point Shu du Rein.</li>
+      <li>40V, milieu du creux poplité.</li>
+      <li>35E (externe) et Xiyan (interne).</li>
+    </ol>
+  </details>
+</section>
+
+<footer class="noprint">Construit sur mesure · Données locales · Aucune pub</footer>
+</main>
+
+<script>
+function printCours(){
+  var d=document.querySelectorAll('details');
+  d.forEach(function(x){x.setAttribute('open','')});
+  window.print();
+}
+window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(x){x.setAttribute('open','')})});
+if(window.LVNAV){ LVNAV.init({ app:"mtc-cours-2026-11", sections:"details" }); }
+</script>
+</body>
+</html>
