@@ -6,6 +6,18 @@
 <title>MTC — Vide et Plénitude</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="cours.css">
+<style>
+.big2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.card{border:1px solid var(--bdr);border-radius:12px;padding:14px;background:var(--surf)}
+.card .ic{font-size:30px;line-height:1;margin-bottom:6px;font-style:normal}
+.card h4{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1px;margin-bottom:6px}
+.card p,.card li{font-size:14px}
+.card.v{border-top:4px solid var(--blue)}
+.card.p{border-top:4px solid var(--acc2)}
+.ex{font-size:13.5px;border-radius:10px;padding:10px 12px;background:var(--surf2);margin:8px 0}
+@media (max-width:600px){.big2{grid-template-columns:1fr}}
+@media print{.card,.ex{background:#fff;border-color:#999;break-inside:avoid}.big2{break-inside:avoid}}
+</style>
 <script src="/lvnav.js"></script>
 </head>
 <body>
@@ -21,183 +33,166 @@
 <div class="cover">
   <div class="kicker">Théorie · Devoir du week-end novembre 2026</div>
   <h1>Vide <span>&amp; Plénitude</span></h1>
-  <div class="tags"><span class="tag">Xu 虚 · Shi 实</span><span class="tag">Théorie</span><span class="tag">Principes de traitement</span></div>
+  <div class="tags"><span class="tag">Les bases</span><span class="tag">Version simple</span></div>
   <div class="legend">
     <span><b>Texte normal</b> = ce que la prof a dit ou écrit</span>
-    <span class="moi">Rouge italique = rédigé par Claude d'après Maciocia (Principes fondamentaux, ch. 27, 30, 69), reformulé, à valider en cours</span>
+    <span class="moi">Rouge italique = expliqué par Claude, à valider en cours</span>
   </div>
 </div>
 
-<nav class="toc">
-  <ol>
-    <li><a href="#question">La question du devoir</a></li>
-    <li><a href="#base">Les deux forces en présence</a></li>
-    <li><a href="#vide">Qu'est-ce qui peut être en Vide ?</a></li>
-    <li><a href="#plenitude">Qu'est-ce qui peut être en Plénitude ?</a></li>
-    <li><a href="#reconnaitre">Reconnaître l'un ou l'autre</a></li>
-    <li><a href="#traitement">Principes de traitement</a></li>
-    <li><a href="#pratique">En pratique : ventouses, moxa, Tuina</a></li>
-    <li><a href="#revision">Révision</a></li>
-  </ol>
-</nav>
-
 <section id="question">
-  <div class="part theo">Le devoir</div>
-  <h2>La question posée</h2>
+  <h2>La question du devoir</h2>
   <ul>
     <li>Qu'est-ce qui peut être en <strong>vide</strong> ? Quel est le principe de traitement ?</li>
     <li>Qu'est-ce qui peut être en <strong>plénitude</strong> ? Quel est le principe de traitement ?</li>
   </ul>
-  <p>Ce que la prof a déjà donné sur le sujet :</p>
+  <p>Ce que la prof a déjà dit :</p>
   <div class="quote">« Pour que les Xie Qi empiètent, il faut que le Qi soit déficient. »</div>
   <div class="quote">« Le plus souvent, les Reins sont en Vide ET un Xie Qi ou une plénitude est bien présente. »</div>
   <ul>
-    <li>Plénitude (dur) → <strong>disperser</strong></li>
+    <li>Plénitude (dur) → disperser</li>
     <li>Ventouse = disperser · moxa = tonifier</li>
-    <li>Ventouses : vide, fatigué → pas intéressant</li>
+    <li>Personne en vide, fatiguée → ventouses pas intéressantes</li>
   </ul>
-  <div class="box compl moi"><b class="t">Réponse courte</b>Le vide touche les substances du corps : Qi, Yang, Sang, Yin. On le <strong>tonifie</strong>. La plénitude, c'est la présence d'un facteur pathogène : climat, Humidité, Glaires, Chaleur, stagnation de Qi, stase de Sang. On la <strong>disperse</strong>. Le plus souvent, les deux coexistent.</div>
 </section>
 
-<section id="base" class="moi">
-  <div class="part theo">Théorie</div>
-  <h2>Les deux forces en présence</h2>
-  <p class="lead">Tout se joue entre deux forces : le <strong>Qi Correct</strong> (Zheng Qi) et le <strong>facteur pathogène</strong> (Xie Qi).</p>
-  <table>
-    <tr><th>Terme</th><th>Ce que c'est</th></tr>
-    <tr><td class="pt">Zheng Qi</td><td>Le Qi Correct : l'ensemble du Qi et du Sang, vu comme la capacité du corps à résister à la maladie.</td></tr>
-    <tr><td class="pt">Xie Qi</td><td>Le facteur pathogène (« mal ») : externe (Vent, Froid, Chaleur, Humidité…) ou interne (Glaires, Feu, stagnation, stase…).</td></tr>
-    <tr><td class="pt">Vide · Xu 虚</td><td>Le Qi Correct est <strong>insuffisant</strong>.</td></tr>
-    <tr><td class="pt">Plénitude · Shi 实</td><td>Un facteur pathogène est <strong>présent</strong>, et le Qi Correct est encore assez fort pour se battre. Shi veut dire « solide ».</td></tr>
-  </table>
-  <div class="box retenir"><b class="t">Piège classique</b>La plénitude n'est <strong>pas un excès de Qi</strong>. C'est la présence d'un facteur pathogène.</div>
+<section id="idee" class="moi">
+  <h2>L'idée en une image</h2>
+  <p class="lead">Imagine le corps comme une maison avec un réservoir d'énergie.</p>
 
-  <h3>Les situations possibles</h3>
-  <div class="matrix">
-    <div class="h"></div><div class="h">Qi Correct fort</div><div class="h">Qi Correct faible</div>
-    <div class="h">Pas de facteur pathogène</div>
-    <div class="cell"><b>Santé</b>Rare à l'état pur.</div>
-    <div class="cell"><b>Vide pur</b>Symptômes légers, chronique, installé lentement. Toujours interne.</div>
-    <div class="h">Facteur pathogène présent</div>
-    <div class="cell"><b>Plénitude pure</b>Le corps se bat fort : symptômes intenses. Ex. Vent externe avec forte fièvre.</div>
-    <div class="cell"><b>Vide-Plénitude</b>Le corps se bat mal. <strong>Le cas le plus fréquent</strong> en pratique.</div>
+  <div class="big2">
+    <div class="card v">
+      <div class="ic">🪫</div>
+      <h4>Le vide</h4>
+      <p><strong>Il manque quelque chose.</strong> Le réservoir n'est pas assez rempli.</p>
+      <p>La personne est fatiguée, faible, frileuse…</p>
+      <p>→ On <strong>remplit</strong> : c'est <strong>tonifier</strong>.</p>
+    </div>
+    <div class="card p">
+      <div class="ic">🚧</div>
+      <h4>La plénitude</h4>
+      <p><strong>Il y a quelque chose en trop</strong>, qui gêne ou qui bloque : un intrus entré dans la maison, ou un bouchon dans les tuyaux.</p>
+      <p>Ça fait mal, c'est dur, tendu…</p>
+      <p>→ On <strong>vide, on débouche, on chasse</strong> : c'est <strong>disperser</strong>.</p>
+    </div>
   </div>
-  <p>Les deux forces jouent l'une contre l'autre : quand le facteur pathogène grossit, le Qi Correct s'use ; quand le Qi Correct se renforce, le facteur pathogène recule. Et un vide qui dure peut lui-même créer une plénitude : par exemple, une Rate faible fabrique de l'Humidité.</p>
-  <p>C'est exactement la phrase de la prof : le Xie Qi entre parce que le Qi est déficient. Et la lombalgie la plus courante, c'est Reins en vide + un facteur pathogène.</p>
+
+  <div class="box retenir"><b class="t">Attention au mot « plénitude »</b>Ça ne veut pas dire « plein d'énergie ». Ça veut dire « plein de quelque chose qui ne devrait pas être là ».</div>
+
+  <h3>Et souvent, c'est les deux à la fois</h3>
+  <p>Quand le réservoir est bas, la maison se défend mal : la porte ferme mal et les intrus entrent plus facilement.</p>
+  <p>C'est exactement ce que dit la prof : <strong>le Xie Qi (l'intrus) entre parce que le Qi (l'énergie) est faible</strong>. Et pour le dos : les Reins sont fatigués (vide) <strong>et</strong> il y a un intrus, par exemple du froid ou de l'humidité (plénitude).</p>
 </section>
 
 <section id="vide" class="newpage moi">
-  <div class="part theo">Théorie</div>
-  <h2>Qu'est-ce qui peut être en Vide ?</h2>
-  <p class="lead">Quatre substances, du moins grave au plus profond.</p>
+  <h2>Qu'est-ce qui peut être en vide ?</h2>
+  <p class="lead">Quatre choses peuvent manquer. Pour chacune : ce qui manque, et ce qu'on voit chez la personne.</p>
+
   <table>
-    <tr><th>Vide de…</th><th>Signes généraux</th><th>Organes les plus touchés</th></tr>
-    <tr><td class="pt">Qi</td><td>Fatigue, voix faible, souffle court, transpiration légère le jour, petit appétit, selles molles, teint pâle</td><td>Rate, Poumon (+ Cœur, Rein)</td></tr>
-    <tr><td class="pt">Yang</td><td>Signes du vide de Qi + <strong>froid</strong> : frilosité, membres froids, envie de boissons chaudes, urines claires et fréquentes</td><td>Rate, Rein, Poumon, Cœur, Estomac</td></tr>
-    <tr><td class="pt">Sang</td><td>Teint terne, lèvres pâles, vision trouble, cheveux secs, fourmillements, mauvaise mémoire, insomnie, règles peu abondantes</td><td>Foie, Cœur, Rate</td></tr>
-    <tr><td class="pt">Yin</td><td>Chaleur l'après-midi ou le soir, sueurs nocturnes, gorge sèche la nuit, corps mince. Si ça dure : Chaleur-Vide (pommettes rouges, chaleur des 5 cœurs)</td><td>Rein, Poumon, Cœur, Foie, Estomac</td></tr>
+    <tr><th>Vide de…</th><th>En clair</th><th>On voit souvent</th></tr>
+    <tr><td class="pt">Qi</td><td>Il manque d'<strong>énergie</strong></td><td>Fatigue, souffle court, voix faible, peu d'appétit</td></tr>
+    <tr><td class="pt">Yang</td><td>Il manque de <strong>chaleur</strong></td><td>Tout ce qui précède + frilosité, mains et pieds froids, envie de boissons chaudes</td></tr>
+    <tr><td class="pt">Sang</td><td>Il manque ce qui <strong>nourrit</strong></td><td>Teint pâle, peau et cheveux secs, fourmillements, mauvais sommeil, mémoire qui flanche</td></tr>
+    <tr><td class="pt">Yin</td><td>Il manque de <strong>fraîcheur et d'hydratation</strong></td><td>Chaleur le soir, sueurs la nuit, bouche sèche, personne plutôt mince</td></tr>
   </table>
-  <ul>
-    <li>Le vide de Qi est le premier stade. Le vide de Yang, c'est le vide de Qi qui a perdu sa fonction de <strong>réchauffer</strong>.</li>
-    <li>Le Sang fait partie du Yin : un vide de Sang qui dure donne de la sécheresse.</li>
-    <li>Le vide est le plus souvent <strong>chronique</strong> : alimentation irrégulière pour la Rate, surmenage pour le Rein.</li>
-  </ul>
-  <div class="box retenir"><b class="t">Lien avec la lombalgie</b>Les trois causes internes du polycopié sont des vides : <strong>Vide de Qi, de Yang, de Yin du Rein</strong>.</div>
+
+  <div class="ex">💡 <strong>Pour s'en souvenir :</strong> Qi = la batterie · Yang = le chauffage · Sang = la nourriture · Yin = l'eau du radiateur. Si l'eau manque, ça chauffe trop : d'où la chaleur du soir.</div>
+
+  <p>Le vide s'installe <strong>doucement, sur des mois ou des années</strong> : surmenage, mauvais sommeil, alimentation irrégulière, âge…</p>
+
+  <div class="box retenir"><b class="t">Lien avec ton cours de lombalgie</b>Dans le polycopié, les causes « internes » sont toutes des vides : <strong>vide de Qi, de Yang, de Yin du Rein</strong>. Des Reins fatigués.</div>
 </section>
 
 <section id="plenitude" class="moi">
-  <div class="part theo">Théorie</div>
-  <h2>Qu'est-ce qui peut être en Plénitude ?</h2>
-  <p class="lead">Tout ce qui est un <strong>facteur pathogène</strong>, externe ou interne.</p>
+  <h2>Qu'est-ce qui peut être en plénitude ?</h2>
+  <p class="lead">Deux grandes familles : les intrus venus de dehors, et les bouchons à l'intérieur.</p>
+
+  <h3>1. Les intrus venus de dehors : le climat</h3>
+  <p>Vent, Froid, Humidité, Chaleur. C'est « attraper froid », « prendre un courant d'air ».</p>
+  <div class="ex">Exemple : début de rhume, nez qui coule après un coup de froid. C'est l'exemple donné en cours pour les ventouses.</div>
+
+  <h3>2. Les bouchons à l'intérieur</h3>
   <table>
-    <tr><th>Type</th><th>Exemples</th></tr>
-    <tr><td class="pt">Climats externes</td><td>Vent, Froid, Chaleur, Humidité, Sécheresse. Une invasion externe est <strong>toujours</strong> une plénitude.</td></tr>
-    <tr><td class="pt">Facteurs internes</td><td>Froid interne, Chaleur, Feu, Humidité, Glaires, Vent interne</td></tr>
-    <tr><td class="pt">Ce qui bloque</td><td><strong>Stagnation de Qi</strong>, <strong>stase de Sang</strong></td></tr>
+    <tr><th>Bouchon</th><th>En clair</th><th>On voit souvent</th></tr>
+    <tr><td class="pt">Stagnation de Qi</td><td>L'énergie coince, ne circule plus</td><td>Tensions, épaules nouées, stress, douleur qui se déplace</td></tr>
+    <tr><td class="pt">Stase de Sang</td><td>Le sang coince, c'est plus « solide »</td><td>Douleur fixe, piquante, toujours au même endroit, après un coup ou une chute. Trace violette avec la ventouse.</td></tr>
+    <tr><td class="pt">Humidité</td><td>Comme une éponge gorgée d'eau</td><td>Lourdeur, gonflement, raideur pire par temps humide</td></tr>
+    <tr><td class="pt">Chaleur</td><td>Trop chaud à l'intérieur</td><td>Rougeur, soif, agitation</td></tr>
   </table>
-  <ul>
-    <li>Aigu ne veut pas dire plénitude externe : une plénitude peut aussi être interne et chronique, par exemple une stagnation de Qi d'origine émotionnelle.</li>
-    <li>La plénitude <strong>bloque</strong> : la douleur est souvent forte, et pire quand on appuie.</li>
-  </ul>
-  <div class="box retenir"><b class="t">Lien avec la lombalgie</b>Causes externes (Vent-Froid, Froid-Humidité…) et traumatismes (stagnation de Qi, stase de Sang) = plénitudes. Dans le polycopié : « Plénitude (dur) → disperser ».</div>
+
+  <div class="box retenir"><b class="t">Lien avec ton cours de lombalgie</b>Les causes externes (Froid-Humidité…) et les traumatismes (stagnation, stase de Sang) sont des plénitudes.</div>
 </section>
 
-<section id="reconnaitre" class="newpage">
-  <div class="part theo">Théorie</div>
-  <h2>Reconnaître le Vide et la Plénitude</h2>
-  <table class="moi">
-    <tr><th></th><th>Plénitude</th><th>Vide</th></tr>
-    <tr><td class="pt">Début</td><td>Aigu, intense</td><td>Progressif, chronique</td></tr>
-    <tr><td class="pt">Douleur</td><td>Forte, empêche d'agir</td><td>Sourde, plutôt une gêne</td></tr>
-    <tr><td class="pt">À la pression</td><td>Aggravée, tissus <strong>durs</strong>, tendus</td><td>Soulagée, tissus <strong>mous</strong>, creux</td></tr>
-    <tr><td class="pt">Voix, souffle</td><td>Forts</td><td>Faibles</td></tr>
-    <tr><td class="pt">Attitude</td><td>Agitée, irritable</td><td>Apathique, fatiguée, veut se pelotonner</td></tr>
-    <tr><td class="pt">Teint</td><td>Rouge, marqué</td><td>Pâle</td></tr>
-    <tr><td class="pt">Pouls</td><td>Plein, fort</td><td>Vide, faible</td></tr>
+<section id="reconnaitre" class="moi">
+  <h2>Sous tes mains : vide ou plénitude ?</h2>
+  <p class="lead">En Tuina, c'est surtout la palpation qui va te renseigner.</p>
+  <table>
+    <tr><th></th><th>Plénitude 🚧</th><th>Vide 🪫</th></tr>
+    <tr><td class="pt">Au toucher</td><td><strong>Dur</strong>, tendu, gonflé</td><td><strong>Mou</strong>, creux, sans tonus</td></tr>
+    <tr><td class="pt">Quand tu appuies</td><td>La personne n'aime pas, ça fait plus mal</td><td>La personne aime, ça soulage</td></tr>
+    <tr><td class="pt">La douleur</td><td>Vive, forte</td><td>Sourde, une gêne qui traîne</td></tr>
+    <tr><td class="pt">Depuis quand</td><td>Souvent récent, brutal</td><td>Souvent ancien, installé doucement</td></tr>
+    <tr><td class="pt">La personne</td><td>Plutôt en forme, agitée</td><td>Plutôt fatiguée, frileuse</td></tr>
   </table>
-  <div class="box retenir moi"><b class="t">Pour un praticien Tuina</b>La palpation est ton meilleur outil : <strong>dur et douloureux à l'appui = plénitude</strong> ; <strong>mou et soulagé par l'appui = vide</strong>. C'est le « dur » du polycopié.</div>
-  <p>La ventouse donne aussi un indice, d'après tes notes de cours : une trace très violette qui accroche signe la stagnation. Si rien ne se passe, c'est plutôt un vide.</p>
+  <p>Et la ventouse te donne aussi un indice, d'après tes notes : <strong>trace très violette = ça stagnait</strong>. Si rien ne se passe, c'est plutôt un vide.</p>
+  <div class="box retenir"><b class="t">Le plus simple à retenir</b>Dur et ça fait mal quand j'appuie → plénitude. Mou et ça fait du bien quand j'appuie → vide.</div>
 </section>
 
 <section id="traitement" class="moi">
-  <div class="part theo">Principes de traitement</div>
-  <h2>Tonifier ou disperser</h2>
-  <table>
-    <tr><th>Situation</th><th>Principe</th></tr>
-    <tr><td class="pt">Vide pur</td><td><strong>Tonifier</strong> (Bu) le Qi Correct : Qi, Yang, Sang ou Yin selon ce qui manque</td></tr>
-    <tr><td class="pt">Plénitude pure</td><td><strong>Disperser</strong> (Xie) : chasser le facteur pathogène, faire circuler ce qui stagne</td></tr>
-    <tr><td class="pt">Vide-Plénitude</td><td>Les deux, selon ce qui domine : <ul><li>le vide domine → tonifier d'abord</li><li>la plénitude domine → disperser d'abord</li><li>ou les deux en même temps</li></ul></td></tr>
-  </table>
-  <div class="box attn"><b class="t">Règle importante</b>Une invasion externe (ex. Vent-Froid) se traite en <strong>dispersant</strong>, même si la personne a un vide derrière. Tonifier à ce moment-là renforce aussi le facteur pathogène. On tonifie le vide une fois le climat chassé.</div>
-  <p>Chasser un facteur pathogène redonne souvent de l'énergie : en levant le blocage, on libère le Qi. Le choix de disperser se fait sur les signes de plénitude, pas sur l'impression que la personne « a l'air fatiguée ».</p>
+  <h2>Le principe de traitement</h2>
+  <div class="big2">
+    <div class="card v">
+      <h4>Vide → tonifier</h4>
+      <p>On <strong>remplit, on réchauffe, on renforce</strong>.</p>
+      <ul><li><strong>Moxa</strong> (dit en cours)</li><li>Gestes doux, lents, prolongés</li><li>Repos, alimentation</li></ul>
+    </div>
+    <div class="card p">
+      <h4>Plénitude → disperser</h4>
+      <p>On <strong>fait circuler, on débouche, on chasse</strong>.</p>
+      <ul><li><strong>Ventouses</strong> (dit en cours)</li><li>Gestes plus appuyés, plus rapides</li></ul>
+    </div>
+  </div>
+  <p><strong>Les deux à la fois ?</strong> On regarde ce qui domine. Le plus gênant d'abord, ou les deux ensemble.</p>
+  <div class="box attn"><b class="t">Une règle à connaître</b>Coup de froid, début de rhume : on <strong>chasse d'abord</strong>, même si la personne est fatiguée. Si on remplit à ce moment-là, on « nourrit » aussi l'intrus. On renforcera après.</div>
+  <div class="box verif"><b class="t">À valider avec la prof</b>Gestes doux = tonifier, gestes forts = disperser : c'est la règle générale qu'on trouve dans les livres. Ton école a peut-être sa propre façon de le dire.</div>
 </section>
 
-<section id="pratique" class="newpage">
-  <div class="part prat">Pratique</div>
-  <h2>En pratique</h2>
+<section id="lombalgie" class="newpage">
+  <h2>Exemple : les lombalgies du polycopié</h2>
   <table>
-    <tr><th>Outil</th><th>Action</th><th>Pour</th></tr>
-    <tr><td class="pt">Ventouse</td><td>Disperse : mobilise, fait circuler, chasse</td><td>Plénitude, stagnation de Sang, Humidité. Pas sur le vide.</td></tr>
-    <tr><td class="pt">Moxa</td><td>Tonifie</td><td>Vide, Froid. <em>Moxas OK pour Froid-Humidité et Vide de Yang du Rein dans le polycopié.</em></td></tr>
-    <tr><td class="pt">Tuina</td><td class="moi" colspan="2">Selon le geste. On décrit souvent : geste doux, lent, prolongé = tonifie ; geste fort, rapide = disperse. <strong>À valider avec la prof</strong>, l'école a peut-être ses propres règles.</td></tr>
+    <tr><th>Syndrome (polycopié)</th><th class="moi">Vide ou plénitude ?</th><th class="moi">Donc…</th></tr>
+    <tr><td>Froid-Humidité</td><td class="moi">Plénitude (un intrus)</td><td class="moi">Chasser + réchauffer. Le polycopié dit : friction, serviette chaude, moxas OK.</td></tr>
+    <tr><td>Stagnation de Sang</td><td class="moi">Plénitude (un bouchon)</td><td class="moi">Faire circuler. Polycopié : points douloureux (A Shi).</td></tr>
+    <tr><td>Vide de Qi du Rein</td><td class="moi">Vide (batterie basse)</td><td class="moi">Renforcer</td></tr>
+    <tr><td>Vide de Yang du Rein</td><td class="moi">Vide (chauffage en panne)</td><td class="moi">Renforcer + réchauffer. Polycopié : friction de la ceinture, moxas OK.</td></tr>
+    <tr><td>Vide de Yin du Rein</td><td class="moi">Vide (manque d'eau)</td><td class="moi">Renforcer, en douceur</td></tr>
   </table>
-
-  <h3 class="moi">Appliqué à la lombalgie du polycopié</h3>
-  <table>
-    <tr><th>Syndrome</th><th class="moi">Type</th><th class="moi">Principe</th></tr>
-    <tr><td>Froid-Humidité</td><td class="moi">Plénitude</td><td class="moi">Disperser, réchauffer (friction, chaleur, moxas)</td></tr>
-    <tr><td>Stagnation de Sang</td><td class="moi">Plénitude</td><td class="moi">Disperser, faire circuler (points A Shi, 17V)</td></tr>
-    <tr><td>Vide de Qi du Rein</td><td class="moi">Vide</td><td class="moi">Tonifier le Qi du Rein (23V, 3Rn, 6RM)</td></tr>
-    <tr><td>Vide de Yang du Rein</td><td class="moi">Vide</td><td class="moi">Tonifier et réchauffer (4DM, friction de la ceinture, moxas)</td></tr>
-    <tr><td>Vide de Yin du Rein</td><td class="moi">Vide</td><td class="moi">Tonifier le Yin (3Rn, 6Rte, 4RM)</td></tr>
-  </table>
-  <p class="moi">Remarque : les points des syndromes de vide (23V, 3Rn, 36E, 6RM, 4RM, 4DM) sont des points de tonification classiques. Ceux des plénitudes (20VB, A Shi, 3F) chassent et font circuler.</p>
+  <p class="moi">Tu vois le lien : là où le polycopié autorise les moxas et la chaleur, c'est du froid ou du vide. Là où il cherche les points douloureux, c'est un bouchon.</p>
 </section>
 
 <section id="revision" class="moi">
-  <div class="part rev">Révision · rédigé par Claude</div>
-  <h2>Questions</h2>
+  <div class="part rev">Révision</div>
+  <h2>Testes-toi</h2>
   <ol class="qa">
-    <li>La plénitude est-elle un excès de Qi ?</li>
-    <li>Quelles sont les quatre formes de vide ?</li>
-    <li>Cite trois choses qui peuvent être en plénitude.</li>
-    <li>Quel est le cas le plus fréquent en pratique ?</li>
-    <li>À la palpation, comment distinguer vide et plénitude ?</li>
-    <li>Une personne fatiguée attrape un Vent-Froid : tonifier ou disperser d'abord ?</li>
-    <li>Pourquoi éviter la ventouse chez une personne en vide ?</li>
+    <li>« Plénitude » veut-il dire « plein d'énergie » ?</li>
+    <li>Quelles sont les 4 choses qui peuvent manquer ?</li>
+    <li>Cite 3 choses qui peuvent faire une plénitude.</li>
+    <li>Sous tes mains, c'est dur et la personne a mal quand tu appuies. Vide ou plénitude ?</li>
+    <li>Moxa ou ventouse pour une personne fatiguée et frileuse ?</li>
+    <li>Pourquoi l'intrus entre-t-il, d'après la prof ?</li>
   </ol>
   <details class="ans">
     <summary>Réponses</summary>
     <ol>
-      <li>Non : c'est la présence d'un facteur pathogène, le Qi Correct étant encore fort.</li>
-      <li>Qi, Yang, Sang, Yin.</li>
-      <li>Climats (Vent, Froid, Humidité…), Glaires, Chaleur/Feu, stagnation de Qi, stase de Sang.</li>
-      <li>Le Vide-Plénitude : Qi Correct faible + facteur pathogène.</li>
-      <li>Dur, douloureux à l'appui = plénitude. Mou, soulagé par l'appui = vide.</li>
-      <li>Disperser d'abord (chasser le Vent-Froid), tonifier ensuite.</li>
-      <li>Elle disperse : elle affaiblirait encore un Qi déjà insuffisant.</li>
+      <li>Non : plein de quelque chose qui ne devrait pas être là.</li>
+      <li>Le Qi, le Yang, le Sang, le Yin.</li>
+      <li>Le froid ou l'humidité (climat), une stagnation de Qi, une stase de Sang.</li>
+      <li>Plénitude.</li>
+      <li>Moxa : elle est en vide.</li>
+      <li>Parce que le Qi est faible.</li>
     </ol>
   </details>
+  <p class="src" style="margin-top:14px">Inspiré de G. Maciocia, <em>Les principes fondamentaux de la médecine chinoise</em> (ch. 27, 30, 69), expliqué avec des mots simples.</p>
 </section>
 
 <footer class="noprint">Construit sur mesure · Données locales · Aucune pub</footer>
