@@ -137,3 +137,8 @@ footer{text-align:center;font-size:11px;color:var(--mut);letter-spacing:1px;marg
   .quote{border-left-color:#111;color:#111}
   a{color:#111;text-decoration:none}
 }
+
+/* Schémas redessinés des notes */
+figure.schema{background:var(--surf);color:var(--txt);padding:10px 10px 0;max-width:460px}
+figure.schema svg{display:block;width:100%;height:auto}
+@media print{figure.schema{color:#111;max-width:95mm;break-inside:avoid}figure.schema svg{max-height:60mm}}

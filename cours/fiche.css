@@ -47,3 +47,7 @@ table.pts td{font-size:13px}
   tr{break-inside:avoid}
   .grid3 img,.grid3.boards img{height:46mm;max-height:46mm}
 }
+.schema-row{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:14px;align-items:center;margin:10px 0}
+.schema-row figure.schema{margin:0}
+@media (max-width:600px){.schema-row{grid-template-columns:1fr}}
+@media print{.schema-row{grid-template-columns:62mm 1fr;break-inside:avoid}.schema-row figure.schema svg{max-height:42mm}}
